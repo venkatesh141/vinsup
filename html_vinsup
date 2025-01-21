@@ -208,3 +208,136 @@ th, td {
 </body>
 </html>
 -----------------------------------------	
+Forms
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The name Attribute</h2>
+
+<form action="/action_page.php">
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" value=""><br><br>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" value="John"><br><br>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" value="John"><br><br>
+  <label for="fname">First name:</label><br>
+  <input type="text" id="fname" value="John">
+  
+  <input type="submit" value="Submit">
+</form> 
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<p>Notice that the value of the "First name" field will not be submitted, because the input element does not have a name attribute.</p>
+
+</body>
+</html>
+
+
+type=> text,password,email,submit,number,time,email,url,hidden,range,week,radio,checkbox,file
+----------------------------------------------------------
+Radio and checkbox 
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The name Attribute</h2>
+
+  <form>
+    <p> gender </p>
+    <input type="radio" name="gender" value="female" >female
+    <br>
+    <input type="radio" name="gender" value="male" checked>male
+    <br>
+    <input type="submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<p>Notice that the value of the "First name" field will not be submitted, because the input element does not have a name attribute.</p>
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>The name Attribute</h2>
+
+  <form>
+    <p> gender </p>
+    <input type="checkbox" name="gender" value="female" >female
+    <br>
+    <input type="checkbox" name="gender" value="male" checked>male
+    <br>
+    <input type="submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be sent to a page called "/action_page.php".</p>
+
+<p>Notice that the value of the "First name" field will not be submitted, because the input element does not have a name attribute.</p>
+
+</body>
+</html>
+
+--------------------------------------------------
+Dropdown
+
+<form>
+    <p>Month</p>
+    <select name="Month" multiple>
+        <option value="jan">jan</option>
+        <option value="feb">feb</option>
+        <option value="march">march</option>
+    </select>
+    <br>
+    <textarea name="textarea" rows="10" cols="30"></textarea>
+    <br>
+    <input type="button" value="button">
+</form>
+
+---------------------------------------------------------
+Videos and audios
+<audio controls>
+    <source src=".mp3" type="audio/mp3"> if it doesnt work
+    <source src=".ogg" type="audio/ogg">it will work
+</audio>
+
+
+<video  height="" width="" controls>
+    <source src=".mp4" type="video/mp4">if it browser wont support this
+        this text will print
+</video>
+------------------------------------------------ 
+youtube video 
+<iframe width="420" height="315"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe
+-----------------------------------------------
+HTML semantics
+Semantic Elements in HTML
+Many web sites contain HTML code like: <div id="nav"> <div class="header"> <div id="footer"> to indicate navigation, header, and footer.
+
+In HTML there are some semantic elements that can be used to define different parts of a web page:  
+
+<article>
+<aside>
+<details>
+<figcaption>
+<figure>
+<footer>
+<header>
+<main>
+<mark>
+<nav>
+<section>
+<summary>
+<time>
+-----------------------------------------------------
+
+
