@@ -118,3 +118,85 @@ The CSS property font-size: 1rem; sets the font size relative to the root elemen
 
 1rem means the font size will be equal to the font size of the root element, which is typically the <html> tag.
 By default, most browsers set the root font size to 16px. So, 1rem is equal to 16px unless you change the root font size.
+
+---------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Container Example</title>
+    <style>
+        /* Styling the container */
+        .container {
+            text-decoration: underline; /* Underlines the text inside the container */
+            background-image: url('data:image/png;base64,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'); /* Background image URL */
+            background-repeat: cover; /* Background will not repeat */
+            background-position: center; /* Image is centered in the container */
+            background-size: 200px 200px; /* Image will cover the entire container */
+            background-attachment: fixed; /* Background stays fixed during scrolling */
+            margin: 20px -10px 30px 50px; /* Top: 20px, Right: -10px, Bottom: 30px, Left: 50px */
+            padding: 10px 20px 30px 40px; /* Top: 10px, Right: 20px, Bottom: 30px, Left: 40px */
+            list-style: none;
+            /* Removes bullet points from lists inside the container */
+            font-style: italic; /* Makes text inside the container italic */
+            border: 2px solid black; /* Just to make the container visible */
+            width: 1000px; /* Fixed width */
+            height: 1000px; /* Fixed height */
+            color: red; /* Text color */
+            overflow: auto; /* Scrollable if content overflows */
+        }
+    </style>
+</head>
+<body>
+    <!-- The container -->
+    <div class="container">
+        <ol type="1">
+            <li>This is an underlined list item.</li>
+            <li>Background is styled as fixed and italic text.</li>
+        </ol>
+    </div>
+</body>
+</html>
+--------------------------------------------------------------------
+
+1. auto (Default)
+The background image retains its original size.
+The width and height are determined by the image's intrinsic dimensions.
+
+
+cover
+The background image is scaled to completely cover the container.
+The aspect ratio is preserved, but parts of the image might be cropped to fill the container.
+
+
+contain
+The background image is scaled to fit entirely inside the container.
+The aspect ratio is preserved, and there will be empty space if the container’s aspect ratio differs from the image.
+
+
+
+Specific Values (e.g., width height)
+You can specify exact dimensions for the background image.
+
+
+5. auto with One Dimension
+You can set one dimension (width or height) to a fixed value and let the other adjust automatically to maintain the aspect ratio.
+
+
+
+6. initial
+Resets the property to its default value (auto).
+
+
+
+7. inherit
+Inherits the value from its parent element.
+--------------------------------------------------------------------
+
+
+
+
+
+
+
