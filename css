@@ -114,3 +114,7 @@ right: Aligns text to the right.
 
 
 
+The CSS property font-size: 1rem; sets the font size relative to the root element's font size.
+
+1rem means the font size will be equal to the font size of the root element, which is typically the <html> tag.
+By default, most browsers set the root font size to 16px. So, 1rem is equal to 16px unless you change the root font size.
