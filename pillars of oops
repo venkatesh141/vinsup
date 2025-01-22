@@ -1,0 +1,421 @@
+1. Single Inheritance
+Definition: A child class inherits from a single parent class.
+Real-Time Use: Common when creating a specific type of object based on a general object.
+Example: Bank Account
+java
+Copy
+Edit
+class Account {
+    void displayBalance() {
+        System.out.println("Displaying account balance.");
+    }
+}
+
+class SavingsAccount extends Account {
+    void calculateInterest() {
+        System.out.println("Calculating interest for savings account.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount sa = new SavingsAccount();
+        sa.displayBalance();  // From parent class
+        sa.calculateInterest();  // From child class
+    }
+}
+Real-Time Use Case: In a banking system, all types of accounts (e.g., savings, current) inherit common behaviors from a base Account class.
+---------------------------------------
+2. Multilevel Inheritance
+Definition: A class inherits from another class, which in turn inherits from a third class.
+Real-Time Use: Useful in hierarchical models where classes are related in a chain.
+Example: Company Hierarchy
+java
+Copy
+Edit
+class Employee {
+    void work() {
+        System.out.println("Working on tasks.");
+    }
+}
+
+class Manager extends Employee {
+    void manageTeam() {
+        System.out.println("Managing the team.");
+    }
+}
+
+class SeniorManager extends Manager {
+    void makeStrategicDecisions() {
+        System.out.println("Making strategic decisions.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        SeniorManager sm = new SeniorManager();
+        sm.work();  // From Employee
+        sm.manageTeam();  // From Manager
+        sm.makeStrategicDecisions();  // From SeniorManager
+    }
+}
+Real-Time Use Case: In a company, roles like Employee, Manager, and SeniorManager follow a hierarchy.
+---------------------------------------
+
+3. Hierarchical Inheritance
+Definition: Multiple child classes inherit from a single parent class.
+Real-Time Use: Useful when multiple types share common properties or methods.
+Example: Vehicle Types
+java
+Copy
+Edit
+class Vehicle {
+    void startEngine() {
+        System.out.println("Starting the engine.");
+    }
+}
+
+class Car extends Vehicle {
+    void openSunroof() {
+        System.out.println("Opening sunroof.");
+    }
+}
+
+class Bike extends Vehicle {
+    void kickStart() {
+        System.out.println("Kick starting the bike.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.startEngine();  // From parent class
+        car.openSunroof();  // Specific to Car
+
+        Bike bike = new Bike();
+        bike.startEngine();  // From parent class
+        bike.kickStart();  // Specific to Bike
+    }
+}
+Real-Time Use Case: In a vehicle management system, vehicles like Car and Bike share common features from the Vehicle class.
+---------------------------------------
+4. Multiple Inheritance (via Interfaces in Java)
+Definition: A class implements multiple interfaces to inherit behaviors from them.
+Real-Time Use: Useful when a class needs to follow multiple roles or contracts.
+Example: Smart Devices
+java
+Copy
+Edit
+interface Camera {
+    void takePhoto();
+}
+
+interface Phone {
+    void makeCall();
+}
+
+class Smartphone implements Camera, Phone {
+    public void takePhoto() {
+        System.out.println("Taking a photo.");
+    }
+
+    public void makeCall() {
+        System.out.println("Making a call.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Smartphone smartphone = new Smartphone();
+        smartphone.takePhoto();  // From Camera interface
+        smartphone.makeCall();  // From Phone interface
+    }
+}
+Real-Time Use Case: A Smartphone class combines functionalities of both a Camera and a Phone.
+---------------------------------------
+5. Hybrid Inheritance (Supported via Interfaces)
+Definition: Combines two or more types of inheritance. It’s achieved through interfaces in Java to avoid ambiguity.
+Real-Time Use: Used when a class needs to inherit both class-specific and interface-specific behaviors.
+Key Real-Time Applications of Inheritance:
+E-Commerce Platforms:
+
+A base User class with subclasses Buyer and Seller for specific functionalities.
+Banking Systems:
+
+A base Account class for SavingsAccount, CurrentAccount, etc.
+Hospital Management:
+
+A base Person class for Doctor, Nurse, and Patient subclasses.
+Educational Platforms:
+
+A base Course class for specific courses like JavaCourse and PythonCourse.
+
+
+example code 
+
+Hybrid Inheritance Example:
+Let’s create a system where:
+
+A Person interface defines basic information for all people.
+An Employee class extends Person and adds common behaviors for employees.
+A Manager class combines functionalities of Employee and another interface Leader.
+Code Example:
+java
+Copy
+Edit
+// Interface 1: Common properties for all people
+interface Person {
+    void displayInfo();
+}
+
+// Interface 2: Specific to leadership roles
+interface Leader {
+    void leadTeam();
+}
+
+// Parent Class: Employee implements Person
+class Employee implements Person {
+    String name;
+    int id;
+
+    Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public void displayInfo() {
+        System.out.println("Name: " + name + ", ID: " + id);
+    }
+
+    void work() {
+        System.out.println(name + " is working.");
+    }
+}
+
+// Child Class: Manager combines Employee and Leader functionalities
+class Manager extends Employee implements Leader {
+    Manager(String name, int id) {
+        super(name, id);
+    }
+
+    public void leadTeam() {
+        System.out.println(name + " is leading the team.");
+    }
+}
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+        // Create a Manager object
+        Manager manager = new Manager("Alice", 101);
+
+        // Call methods from Person, Employee, and Leader
+        manager.displayInfo();  // From Person
+        manager.work();         // From Employee
+        manager.leadTeam();     // From Leader
+    }
+}
+---------------------------------------------------------
+Interface and abstraction 
+
+
+
+1. Abstraction in Real-Time Use
+
+Abstraction is used to hide the complexity of a system and focus on essential functionalities.
+Example: Payment System
+
+    Scenario: Imagine an e-commerce platform (like Amazon) where users can pay using credit cards, PayPal, or wallets.
+    Abstraction: You define an abstract class Payment that has the common functionality for all payment methods, like processPayment().
+    Specific details (like how PayPal API works or how credit card validation works) are handled by subclasses.
+
+Code Example:
+
+abstract class Payment {
+    abstract void processPayment(double amount); // Abstract method
+
+    void showConfirmation() { // Concrete method
+        System.out.println("Payment processed successfully.");
+    }
+}
+
+class CreditCardPayment extends Payment {
+    @Override
+    void processPayment(double amount) {
+        System.out.println("Processing credit card payment of ₹" + amount);
+    }
+}
+
+class PayPalPayment extends Payment {
+    @Override
+    void processPayment(double amount) {
+        System.out.println("Processing PayPal payment of ₹" + amount);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Payment payment = new CreditCardPayment();
+        payment.processPayment(500); // Hides credit card logic
+        payment.showConfirmation();
+    }
+}
+
+Real-Time Advantage:
+
+    You can extend this system to add new payment methods without changing the Payment class, keeping your system scalable.
+
+2. Interface in Real-Time Use
+
+An interface is used when you want to define a contract that multiple classes must follow, without worrying about their internal implementation.
+Example: Driver System for Different Databases
+
+    Scenario: Your application needs to support multiple databases (e.g., MySQL, PostgreSQL, MongoDB).
+    Interface: You create a Database interface with methods like connect() and disconnect().
+    Each database type (MySQL, PostgreSQL, MongoDB) will provide its own implementation.
+
+Code Example:
+
+interface Database {
+    void connect();
+    void disconnect();
+}
+
+class MySQLDatabase implements Database {
+    @Override
+    public void connect() {
+        System.out.println("Connecting to MySQL database...");
+    }
+
+    @Override
+    public void disconnect() {
+        System.out.println("Disconnecting from MySQL database...");
+    }
+}
+
+class MongoDBDatabase implements Database {
+    @Override
+    public void connect() {
+        System.out.println("Connecting to MongoDB database...");
+    }
+
+    @Override
+    public void disconnect() {
+        System.out.println("Disconnecting from MongoDB database...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Database db = new MySQLDatabase();
+        db.connect();      // MySQL-specific logic
+        db.disconnect();
+        
+        db = new MongoDBDatabase();
+        db.connect();      // MongoDB-specific logic
+        db.disconnect();
+    }
+}
+
+Real-Time Advantage:
+
+    You can easily switch between databases by just changing the class implementing the Database interface.
+    Your code remains consistent and adaptable, following the Open/Closed Principle.
+
+Key Differences in Real-Time Use:
+Abstraction	Interface
+Used when classes share some common behavior (e.g., all payments have processPayment()).	Used when you want to enforce a common set of rules for unrelated classes (e.g., databases).
+Allows sharing some implementation across subclasses.	Does not provide any implementation, only method signatures.
+Helps to create a base class for similar objects.	Helps to ensure different objects follow the same rules.
+Conclusion:
+
+    Use abstraction when you want to hide internal details and allow reuse of some functionality (e.g., Payment system).
+    Use interfaces when you want to enforce a standard or a set of rules across different implementations (e.g., Database).
+
+-------------------------------------------------------------
+Polymorphism in Java (Simple Explanation)
+The word polymorphism means "many forms." In Java, polymorphism allows the same action to behave differently based on the object performing it. It is one of the key features of Object-Oriented Programming (OOP).
+
+Types of Polymorphism
+Compile-Time Polymorphism (Method Overloading)
+
+Happens at compile time.
+The same method name can have different parameter lists (arguments).
+The method to be called is decided by the compiler based on the method signature.
+Example:
+
+java
+Copy
+Edit
+class Calculator {
+    // Method with 2 parameters
+    int add(int a, int b) {
+        return a + b;
+    }
+
+    // Overloaded method with 3 parameters
+    int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(5, 10));       // Calls the 2-parameter method
+        System.out.println(calc.add(5, 10, 15));  // Calls the 3-parameter method
+    }
+}
+Output:
+
+Copy
+Edit
+15  
+30
+Key Point:
+
+Method Overloading is an example of Compile-Time Polymorphism.
+Run-Time Polymorphism (Method Overriding)
+
+Happens at runtime.
+A child class provides a specific implementation of a method that is already defined in its parent class.
+The method to be executed is decided during runtime based on the actual object being used.
+Example:
+
+java
+Copy
+Edit
+class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal myAnimal = new Dog();  // Polymorphism in action
+        myAnimal.sound();             // Calls the Dog's sound method
+    }
+}
+Output:
+
+Copy
+Edit
+Dog barks
+Key Point:
+
+Method Overriding is an example of Run-Time Polymorphism.
+Why Is Polymorphism Important?
+Flexibility: The same code can work for different types of objects.
+Reusability: You can write generic code that works for multiple object types.
+Extensibility: Easily add new functionality by overriding methods in subclasses.
+-----------------------------------------------
+
