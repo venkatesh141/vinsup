@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Properties Example</title>
+    <style>
+        /* Styling for the first example */
+        .example1 {
+            font-size: 10px; /* Text size is 10px */
+            text-transform: uppercase; /* Text will appear in uppercase */
+            font-family: cursive; /* Cursive font family */
+            display: inline-block; /* Inline block behavior */
+            height: 50vh; /* Fixed height of 10px */
+            width: 50vw; /* Fixed width of 10px */
+            background-color: red; /* Red background color */
+            border: 5px solid black; /* Red border with 2px thickness */
+            border-radius: 10%; /* Circular shape */
+            font-weight: bold; /* Bold text */
+            text-align: center; /* Text alignment for multiline text */
+            line-height: 20px;
+        }
+
+        /* Styling for the second example with rem, vw, vh, % */
+        .example2 {
+            font-size: 1rem; /* Font size relative to root element */
+            text-transform: capitalize; /* Capitalizes the first letter of each word */
+            font-family: cursive; /* Cursive font family */
+            display: inline-block; /* Behaves like a block but stays inline */
+            height: 50vh; /* Height is 10% of the viewport height */
+            width: 50vw; /* Width is 10% of the viewport width */
+            background-color: red; /* Red background color */
+            border: 2px solid red; /* Red border */
+            border-radius: 10%; /* Circular shape */
+            font-weight: bolder; /* Extra bold text */
+            text-align: center; /* Center-aligns the text */
+            line-height: 20px; /* space between line */
+        }
+    </style>
+</head>
+<body>
+    <!-- Example 1: Using fixed pixel sizes -->
+    <div class="example1">A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing, particularly
+    journalistic styles, a paragraph can be just one sentence long.</div>
+
+    <!-- Example 2: Using relative units (rem, vh, vw) -->
+    <div class="example2">A paragraph is defined as “a group of sentences or a single sentence that forms a unit” (Lunsford and Connors 116). Length and appearance do not determine whether a section in a paper is a paragraph. For instance, in some styles of writing,
+    particularly journalistic styles, a paragraph can be just one sentence long.</div>
+</body>
+</html>
+
+
+1. font-size: 10px;
+This property sets the size of the text to 10 pixels.
+
+2. text-transform: uppercase;
+This property transforms all text into uppercase letters.
+
+3. font-family: cursive;
+This property changes the font to a cursive style.
+
+4. display: inline-block;
+This property makes the element behave like a block element but still allows it to sit inline with other elements.
+
+5. height: 10px;
+This sets the height of the element to 10 pixels. You can also use other units like rem, vw, vh, or %:
+
+rem: Relative to the root element's font size.
+vw: 1% of the viewport width.
+vh: 1% of the viewport height.
+%: Percentage of the parent element.
+
+
+
+6. width: 10px;
+This sets the width of the element to 10 pixels.
+
+
+7. background-color: red;
+This property sets the background color of the element.
+
+
+
+8. border: 2px solid red;
+This adds a border around the element with:
+
+2px thickness,
+solid style,
+and red color.
+
+
+
+9. border-radius: 50%;
+This makes the element’s corners rounded. Setting it to 50% creates a perfect circle (if width and height are equal).
+
+
+
+10. font-weight: bold;
+This makes the text bold. Other values include:
+
+normal: Regular weight.
+bolder: Extra bold weight.
+
+
+
+11. text-align: justify;
+This aligns the text so that it fits evenly on both left and right margins.
+
+Other values:
+
+left: Aligns text to the left.
+right: Aligns text to the right.
+
+
+
+
