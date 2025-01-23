@@ -60,6 +60,29 @@ public class Main {
     }
 }
 Real-Time Use Case: In a company, roles like Employee, Manager, and SeniorManager follow a hierarchy.
+
+
+Example: Banking System
+Imagine a bank has different types of accounts.
+
+Base Class: Account
+
+This is the basic account.
+It has common features like:
+Account number
+Balance
+Deposit and withdraw methods.
+Intermediate Class: SavingsAccount
+
+This is a special type of account (inherits the base account).
+It adds extra features, like:
+Earning interest on savings.
+Derived Class: StudentSavingsAccount
+
+This is a more specific type of savings account (inherits the SavingsAccount).
+It adds unique features for students, like:
+Extra benefits for students (no minimum balance).
+
 ---------------------------------------
 
 3. Hierarchical Inheritance
