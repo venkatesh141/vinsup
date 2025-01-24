@@ -567,6 +567,93 @@ Initially, Box 2 will be the largest because of flex-grow: 2.
 If the browser window is resized smaller than 600px:
 Box 3 shrinks the most because it has flex-shrink: 2.
 You can copy the code, try it in a browser, and resize the window to observe the behavior!
+--------------------------------------------------------------------
+What Are Gradients in CSS?
+A gradient in CSS is a smooth transition between two or more colors. It can be used to create background images, buttons, or other design elements. Gradients are typically used when you want to create a visually appealing blend of colors without the need for a solid image file.
+
+There are two main types of gradients in CSS:
+
+Linear Gradient: Transitions colors along a straight line.
+Radial Gradient: Transitions colors in a circular pattern, originating from a central point.
+1. Linear Gradient
+A linear gradient transitions colors along a straight line. You can control the direction of the gradient (e.g., top-to-bottom, left-to-right).
+
+Syntax:
+css
+Copy
+Edit
+background: linear-gradient(direction, color1, color2, ...);
+direction: The direction of the gradient (e.g., to right, to bottom, 45deg).
+color1, color2, ...: The colors that blend into each other.
+Example:
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linear Gradient Example</title>
+  <style>
+    .linear-gradient {
+      height: 200px;
+      background: linear-gradient(to right, red, yellow);
+    }
+  </style>
+</head>
+<body>
+  <div class="linear-gradient"></div>
+</body>
+</html>
+to right: This creates a gradient that goes from left to right.
+red, yellow: The gradient starts with red and ends with yellow.
+2. Radial Gradient
+A radial gradient transitions colors from a central point outward, like ripples on water.
+
+Syntax:
+css
+Copy
+Edit
+background: radial-gradient(shape size at position, color1, color2, ...);
+shape: Defines the shape of the gradient, usually circle or ellipse.
+size: Defines the size of the gradient, such as closest-side, farthest-side, etc.
+position: Defines the starting point of the gradient, like center, top, etc.
+color1, color2, ...: The colors that blend in the gradient.
+Example:
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radial Gradient Example</title>
+  <style>
+    .radial-gradient {
+      height: 200px;
+      background: radial-gradient(circle, blue, green, yellow);
+    }
+  </style>
+</head>
+<body>
+  <div class="radial-gradient"></div>
+</body>
+</html>
+circle: The gradient will form in a circular shape.
+blue, green, yellow: The gradient starts with blue at the center, transitions to green, and finally ends with yellow.
+3. Multi-Color Gradients
+You can add more than two colors to create a gradient with multiple color stops.
+
+Example:
+css
+Copy
+Edit
+background: linear-gradient(to bottom, red, orange, yellow, green, blue);
+This will create a vertical gradient that transitions through five colors (red → orange → yellow → green → blue).
+
+------------------------------------------------------------------
 
 
 
