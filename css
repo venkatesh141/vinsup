@@ -393,7 +393,43 @@ div.sticky {
 
 
 -------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fixed Width Example</title>
+  <style>
+    .fixed-width {
+      min-width: 20px;
+      max-width: 20px;
+      background-color: lightblue;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div class="fixed-width">20px</div>
+</body>
+</html>
 
+
+Explanation:
+CSS Properties Used:
+
+min-width: 20px;: This sets the minimum width the element can have to 20px.
+max-width: 20px;: This sets the maximum width the element can have to 20px.
+By combining both properties with the same value, the width is effectively locked to 20px.
+
+Additional Styles:
+
+background-color: lightblue;: Gives the element a background color so you can easily see it.
+height: 50px;: Sets the height of the element to make it visually noticeable.
+text-align: center; and line-height: 50px;: Centers the text vertically and horizontally within the element.
+Outcome: The <div> will always be 20px wide regardless of the screen size or content. Even if the browser window is resized or the content inside grows larger, the width remains fixed.
+-------------------------------------------------------------------------
 
 
 
