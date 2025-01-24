@@ -431,6 +431,69 @@ text-align: center; and line-height: 50px;: Centers the text vertically and hori
 Outcome: The <div> will always be 20px wide regardless of the screen size or content. Even if the browser window is resized or the content inside grows larger, the width remains fixed.
 -------------------------------------------------------------------------
 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      
+      background-color: lightgray;
+      height: 500px;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .box {
+      background-color: lightblue;
+      padding: 20px;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">Box 1</div>
+    <div class="box">Box 2</div>
+    <div class="box">Box 3</div>
+    
+    <div class="box">Box 3</div>
+    <div class="box">Box 4</div>
+    <div class="box">Box 5</div>
+  </div>
+</body>
+</html>
+
+
+
+
+Explanation of Properties Used:
+display: flex;
+
+Makes the container a flex container, enabling Flexbox layout for its children.
+justify-content: center;
+
+Aligns items horizontally.
+Options:
+flex-start: Aligns items to the left.
+flex-end: Aligns items to the right.
+center: Centers items horizontally.
+space-between: Adds equal space between items.
+space-around: Adds equal space around items.
+align-items: center;
+
+Aligns items vertically in the container.
+Options:
+stretch (default): Stretches items to fill the container height.
+center: Centers items vertically.
+flex-start: Aligns items to the top.
+flex-end: Aligns items to the bottom.
+margin: 5px;
+
+Adds space around each box for separation.
+
+
+------------------------------------------------------------------------------------------
+
 
 
 
