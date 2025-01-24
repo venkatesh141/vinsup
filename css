@@ -495,6 +495,86 @@ Adds space around each box for separation.
 ------------------------------------------------------------------------------------------
 
 
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: flex;
+      width: 600px; /* Fixed width for demonstration */
+      background-color: lightgray;
+    }
+    .box {
+      background-color: lightblue;
+      margin: 5px;
+      text-align: center;
+      line-height: 50px;
+      height: 50px;
+    }
+    .grow {
+      flex-grow: 2; /* This item will grow twice as much as others */
+    }
+    .shrink {
+      flex-shrink: 2; /* This item will shrink twice as much as others */
+    }
+    .normal {
+      flex-grow: 1; /* Default grow */
+      flex-shrink: 1; /* Default shrink */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box normal" style="width: 10px;">Box 1</div>
+    <div class="box grow" style="width: 10px;">Box 2</div>
+    <div class="box shrink" style="width: 20px;">Box 3</div>
+  </div>
+</body>
+</html>
+
+Understanding flex-grow and flex-shrink in Simple Terms:
+Flexbox allows items to expand (flex-grow) or shrink (flex-shrink) to fit within the available space of their container.
+
+1. flex-grow: Controls how much an item grows (expands) if there's extra space in the container.
+A higher flex-grow value means the item will take more of the available space.
+If all items have the same flex-grow value, they grow equally.
+2. flex-shrink: Controls how much an item shrinks when the container is too small.
+A higher flex-shrink value means the item will shrink more than others.
+If all items have the same flex-shrink value, they shrink equally.
+
+
+Explanation:
+flex-grow Example:
+
+Box 1 (normal) has flex-grow: 1.
+Box 2 (grow) has flex-grow: 2, so it grows twice as much as Box 1 when there's extra space.
+When the container has extra space, Box 2 becomes larger than the others.
+flex-shrink Example:
+
+Box 3 (shrink) has flex-shrink: 2.
+If the container width becomes smaller (less than 600px), Box 3 shrinks twice as much as the others.
+Key Points:
+flex-grow:
+
+If no extra space is available, it has no effect.
+Used for distributing extra space.
+flex-shrink:
+
+If there's no need to shrink (e.g., container is large enough), it has no effect.
+Used when items need to "give up" space due to a lack of room.
+Result:
+Initially, Box 2 will be the largest because of flex-grow: 2.
+If the browser window is resized smaller than 600px:
+Box 3 shrinks the most because it has flex-shrink: 2.
+You can copy the code, try it in a browser, and resize the window to observe the behavior!
+
+
+
+
+
+
+
+
 
 
 
