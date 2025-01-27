@@ -762,6 +762,92 @@ This single program demonstrates how each of these CSS selectors works in a real
 
 ---------------------------------------------------------------------------------------------
 
+Media Queries
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Queries Example</title>
+    <style>
+        /* Mobile-first default styles (smaller than 600px) */
+        div {
+            background-color: lightblue;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        /* For screens 600px and wider */
+        @media screen and (min-width: 600px) {
+            div {
+                background-color: lightgreen;
+                color: black;
+                font-size: 20px;
+                padding: 30px;
+            }
+        }
+
+        /* For screens 900px and wider */
+        @media screen and (min-width: 900px) {
+            div {
+                background-color: lightcoral;
+                font-size: 24px;
+                text-align: left;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Responsive Media Query Example</h1>
+    <div>
+        Resize the browser window to see how this box changes styles based on screen width!
+    </div>
+</body>
+</html>
+
+
+Explanation:
+Default (Mobile):
+
+On screens smaller than 600px, the div:
+Has a light blue background.
+Displays text in white, centered.
+Has a font size of 16px and smaller padding.
+600px and Wider:
+
+When the screen width is 600px or wider, the div:
+Changes to a light green background.
+Uses black text and a font size of 20px.
+Padding increases for a more spacious look.
+900px and Wider:
+
+When the screen width is 900px or wider, the div:
+Changes to a light coral background.
+Increases its font size to 24px.
+Aligns text to the left for a more desktop-style layout.
+Padding increases even further for a spacious desktop experience.
+How It Works:
+Open the webpage and resize your browser window.
+The styles will update dynamically depending on the width:
+<600px: Mobile styles apply.
+600px–899px: Tablet styles apply.
+900px+: Desktop styles apply.
+This approach ensures the design starts simple (for mobile) and progressively adds complexity for larger screens! Let me know if you need further assistance!
+
+
+-------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
 
 
 
