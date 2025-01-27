@@ -1,0 +1,53 @@
+Sure! Loops in Java are used to repeat a block of code multiple times until a condition is met. Think of loops as a way to say, "Do this action again and again until I tell you to stop."
+
+Types of Loops in Java
+for Loop
+Use this when you know how many times you want to repeat something.
+Example:
+java
+Copy
+Edit
+for (int i = 1; i <= 5; i++) {
+    System.out.println("Count: " + i);
+}
+Explanation:
+Start with i = 1.
+Check if i <= 5. If true, print Count: i.
+Increment i by 1 (i++), and repeat until i > 5.
+while Loop
+Use this when you don’t know how many times the loop will run, but you have a condition to check.
+Example:
+java
+Copy
+Edit
+int i = 1;
+while (i <= 5) {
+    System.out.println("Count: " + i);
+    i++;
+}
+Explanation:
+Start with i = 1.
+Check if i <= 5. If true, print Count: i.
+Increment i by 1 and repeat until i > 5.
+do-while Loop
+Use this when you want the code to run at least once, even if the condition is false.
+Example:
+java
+Copy
+Edit
+int i = 1;
+do {
+    System.out.println("Count: " + i);
+    i++;
+} while (i <= 5);
+Explanation:
+Print Count: i and increment i by 1.
+After running the code, check if i <= 5 and repeat if true.
+Real-Life Analogy
+Imagine you're eating cookies:
+
+for loop: You have 5 cookies. You eat each cookie one by one and stop after the 5th.
+while loop: You keep eating cookies as long as there are cookies left on the plate.
+do-while loop: You eat one cookie first, then check if there are more to continue eating.
+
+  ----------------------------------------------------------------
