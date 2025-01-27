@@ -654,8 +654,113 @@ background: linear-gradient(to bottom, red, orange, yellow, green, blue);
 This will create a vertical gradient that transitions through five colors (red → orange → yellow → green → blue).
 
 ------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Selectors Example</title>
+  <style>
+    /* Universal Selector */
+    * {
+      font-family: Arial, sans-serif;
+    }
+
+    /* Type Selector (Element Selector) */
+    p {
+      font-size: 18px;
+    }
+
+    /* Class Selector */
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+
+    /* ID Selector */
+    #special {
+      color: red;
+      font-size: 24px;
+    }
+
+    /* Attribute Selector */
+    input[type="text"] {
+      border: 2px solid green;
+      padding: 5px;
+      margin-top: 10px;
+    }
+
+    /* Descendant Selector */
+    div p {
+      color: green;
+    }
+    
+
+    /* Child Selector */
+    div > p {
+      color: purple;
+    }
+
+    /* Adjacent Sibling Selector */
+    h1 + p {
+      color: orange;
+    }
+
+    /* General Sibling Selector */
+    h1 ~ p {
+      font-style: italic;
+    }
+
+    /* Pseudo-class: :hover */
+    a:hover {
+      color: green;
+    }
+
+    /* Pseudo-element: ::before */
+    p::before {
+      content: "👉 ";
+    }
+  </style>
+</head>
+<body>
+  <h1>This is a heading</h1>
+  <p>This paragraph is not highlighted.</p>
+  <p class="highlight">This paragraph is highlighted with a yellow background and bold text.</p>
+  <p id="special">This paragraph has red text and larger font size.</p>
+
+  <div>
+    <p>This paragraph is inside a div and has blue text.</p>
+    <p>This paragraph is a direct child of a div and has purple text.</p>
+  </div>
+
+  <h1>Another heading</h1>
+  <p>This paragraph immediately follows the first heading and is orange.</p>
+  <p>This paragraph is a sibling of the first one and is italicized.</p>
+
+  <input type="text" placeholder="Enter text here">
+  <input type="password" placeholder="Enter password">
+
+  <a href="#">Hover over this link to change its color.</a>
+</body>
+</html>
 
 
+Explanation of What Each Selector Does:
+Universal Selector (*): Applies Arial font to all elements.
+Type Selector (p): Sets the font size of all <p> elements to 18px.
+Class Selector (.highlight): Adds a yellow background and bold text to any element with the class highlight.
+ID Selector (#special): Changes the text color to red and increases the font size for the element with the id special.
+Attribute Selector (input[type="text"]): Adds a green border and padding to all text input fields.
+Descendant Selector (div p): Sets text color to blue for any <p> inside a <div>.
+Child Selector (div > p): Sets text color to purple for direct <p> children of a <div>.
+Adjacent Sibling Selector (h1 + p): Sets the color of the <p> immediately after an <h1> to orange.
+General Sibling Selector (h1 ~ p): Makes all <p> siblings of an <h1> ita
+licized.
+Pseudo-class (:hover): Changes the link color to green when hovered over.
+Pseudo-element (::before): Adds an arrow before each <p> element.
+This single program demonstrates how each of these CSS selectors works in a real example.
+
+---------------------------------------------------------------------------------------------
 
 
 
