@@ -841,6 +841,84 @@ This approach ensures the design starts simple (for mobile) and progressively ad
 
 
 -------------------------------------------------------------------------------------------
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transform and Transition</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 50px auto;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+
+            /* Adding transformation and transition effects */
+            transform: rotate(0deg) scale(1, 1); /* Default state */
+            transition: height 1s ease-in-out 0.5s, transform 0.5s ease-in-out;
+        }
+
+        /* Rotate and scale on hover */
+        .box:hover {
+            transform: rotate(120deg) scale(2, 3); /* Rotate 120 degrees and scale */
+            height: 200px; /* Smooth height change */
+            background-color: lightcoral; /* To show changes more clearly */
+        }
+    </style>
+</head>
+<body>
+    <h1>Transform and Transition Example</h1>
+    <div class="box">Hover me!</div>
+</body>
+</html>
+
+
+Explanation:
+Default State (.box):
+
+transform: rotate(0deg) scale(1, 1);:
+No rotation.
+No scaling; the element is displayed at its original size.
+transition: height 1s ease-in-out 0.5s, transform 0.5s ease-in-out;:
+Height: Changes smoothly over 1 second with a 0.5-second delay.
+Transform: Changes smoothly over 0.5 seconds.
+On Hover (.box:hover):
+
+transform: rotate(120deg) scale(2, 3);:
+Rotates the element 120 degrees.
+Scales its width 2 times and height 3 times.
+height: 200px;:
+Increases the height to 200px with a smooth transition.
+Visual Feedback:
+
+When you hover over the box:
+The height increases smoothly after a slight delay (0.5 seconds).
+The box rotates 120 degrees and scales up simultaneously.
+The background color changes for better visualization.
+How It Works:
+Open the page in a browser.
+Hover over the box to see the rotation, scaling, and height change animations.
+The transform and transition properties work together to create smooth effects.
+Let me know if you want to add more effects or tweak the example!
+
+
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
 
 
 
