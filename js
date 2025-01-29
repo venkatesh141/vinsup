@@ -443,3 +443,55 @@ IIFE	Runs immediately after defining.
 Pure Function	Always gives same output for same input.
 Impure Function	Depends on external values, so the result may change.
   -------------------------------------------------------------
+
+  Callback Function in JavaScript (Simple Explanation) 😊
+A callback function is a function that is passed as an argument to another function and is executed inside that function.
+
+Example Code:
+js
+Copy
+Edit
+function greet(wish) {
+    console.log(`${wish()}, function called`);
+}
+
+function sayHi() {
+    return "hi";
+}
+
+function sayHello() {
+    return "hello";
+}
+
+greet(sayHi);
+greet(sayHello);
+Step-by-Step Explanation:
+1️⃣ We define greet(wish)
+
+This function takes another function (wish) as a parameter.
+Inside greet(), it calls the wish() function and prints the output.
+2️⃣ We define sayHi() and sayHello()
+
+Both functions return a greeting ("hi" or "hello").
+3️⃣ We call greet() and pass sayHi and sayHello as arguments
+
+js
+Copy
+Edit
+greet(sayHi);
+greet(sayHello);
+greet(sayHi) → Calls sayHi() inside greet() and prints "hi, function called".
+greet(sayHello) → Calls sayHello() inside greet() and prints "hello, function called".
+Output:
+sql
+Copy
+Edit
+hi, function called
+hello, function called
+🔹 Simple Summary
+✔ A function (wish) is passed as an argument to another function (greet).
+✔ The callback function is executed inside greet().
+✔ This is useful for event handling, asynchronous programming (like setTimeout, API calls, etc.).
+
+
+  -----------------------------------------------------------------------------
