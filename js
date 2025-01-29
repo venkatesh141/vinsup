@@ -185,3 +185,98 @@ Operator	Description	Example	Same as	Result	Decimal
 >>	right shift	5 >> 1	0101 >> 1	0010	  2
 >>>	unsigned right shift	5 >>> 1	0101 >>> 1	0010	
 ----------------------------------------------------------------------------
+1. Arrays in JavaScript
+In JavaScript, arrays can hold multiple types of values, such as numbers, strings, and even other arrays.
+
+js
+Copy
+Edit
+const arr = [1, 2, "only", 2.2];
+Here, arr is an array with different data types:
+
+1 → Number
+2 → Number
+"only" → String
+2.2 → Floating-point number
+2. Modifying Arrays (Even When Declared as const)
+In JavaScript, const does not mean that the array itself is immutable. It only means you cannot reassign a new array to the variable.
+However, you can change the elements inside the array.
+js
+Copy
+Edit
+arr[0] = "two"; // Changes the first element (1) to "two"
+console.log(arr); // Output: ["two", 2, "only", 2.2]
+3. Adding and Removing Elements
+JavaScript provides push, unshift, pop, and shift methods for adding/removing elements.
+
+Adding Elements
+js
+Copy
+Edit
+arr.push(20); 
+// Adds 20 to the end of the array
+console.log(arr); // Output: ["two", 2, "only", 2.2, 20]
+
+arr.unshift(30); 
+// Adds 30 at the beginning of the array
+console.log(arr); // Output: [30, "two", 2, "only", 2.2, 20]
+Removing Elements
+js
+Copy
+Edit
+arr.pop();  
+// Removes the last element (20)
+console.log(arr); // Output: [30, "two", 2, "only", 2.2]
+
+arr.shift();  
+// Removes the first element (30)
+console.log(arr); // Output: ["two", 2, "only", 2.2]
+4. Searching in an Array
+We can find elements using indexOf and includes.
+
+js
+Copy
+Edit
+console.log(arr.indexOf(1));  
+// Returns the index of `1`, but since 1 is not in the array anymore, it returns -1.
+
+console.log(arr.includes(1));  
+// Returns false because 1 is not in the array.
+5. slice() - Extracting a Portion of an Array
+slice(start, end) → Returns a new array from the original array without modifying it.
+If only one argument is given, it returns elements from that index to the end.
+If negative values are given, it selects elements from the end.
+js
+Copy
+Edit
+console.log(arr.slice(2));  
+// Removes first 2 elements and returns the rest
+// Output: ["only", 2.2]
+
+console.log(arr.slice(-2));  
+// Returns the last 2 elements
+// Output: ["only", 2.2]
+6. splice() - Adding and Removing Elements
+splice(index, deleteCount, item1, item2, ...)
+index → Where to start
+deleteCount → How many elements to remove
+item1, item2, ... → Elements to insert
+js
+Copy
+Edit
+arr.splice(2, 1, 99, 100);  
+// Removes 1 element at index 2 ("only") and inserts 99 and 100
+console.log(arr); 
+// Output: ["two", 2, 99, 100, 2.2]
+7. concat() - Combining Arrays
+concat() joins two or more arrays without modifying the original arrays.
+js
+Copy
+Edit
+const a = [1, 2, 3];
+const b = [4, 5, 6];
+const c = a.concat(b);
+
+console.log(c);  
+// Output: [1, 2, 3, 4, 5, 6]
+-----------------------------------------------------------------------
