@@ -280,3 +280,71 @@ const c = a.concat(b);
 console.log(c);  
 // Output: [1, 2, 3, 4, 5, 6]
 -----------------------------------------------------------------------
+
+  1. Rest Operator (...)
+The rest operator (...) collects multiple values into an array.
+It is mostly used in function parameters.
+Example 1: Collecting Function Arguments into an Array
+js
+Copy
+Edit
+function add(newone, ...students) {
+    console.log("New one:", newone);
+    console.log("Students:", students);
+}
+
+add("John", "Alice", "Bob", "Charlie");
+Output:
+sql
+Copy
+Edit
+New one: John
+Students: ["Alice", "Bob", "Charlie"]
+"John" is stored in newone.
+The rest of the arguments ("Alice", "Bob", "Charlie") are collected in students as an array.
+Example 2: Passing an Array Using the Rest Operator
+js
+Copy
+Edit
+const students = ["Alice", "Bob", "Charlie"];
+add("John", ...students);
+Output:
+sql
+Copy
+Edit
+New one: John
+Students: ["Alice", "Bob", "Charlie"]
+...students spreads the array into separate values.
+These values are collected into students inside the function.
+2. Spread Operator (...)
+The spread operator (...) expands an array (or iterable) into individual values.
+It is mostly used for copying or merging arrays.
+Example 1: Copying an Array
+js
+Copy
+Edit
+const a = [1, 3, 4];
+const b = [...a];
+
+console.log(b); // Output: [1, 3, 4]
+b is a copy of a.
+b is a separate array (not linked to a).
+Example 2: Merging Two Arrays
+js
+Copy
+Edit
+const c = [1, 2, 3];
+const d = [9, 8, 7];
+
+const e = [...c, ...d];
+
+console.log(e); // Output: [1, 2, 3, 9, 8, 7]
+...c spreads [1, 2, 3]
+...d spreads [9, 8, 7]
+Both arrays are merged into e.
+Final Summary
+Operator	Use	Example	Output
+Rest (...)	Collects multiple values into an array	function add(a, ...b) {}	b becomes an array
+Spread (...)	Expands an array into individual values	const b = [...a]	Creates a copy of a
+
+--------------------------------------------------------------------------------
