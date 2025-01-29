@@ -48,3 +48,93 @@ Got it! Let’s compare Spring and Spring Boot in simple terms for programming.
     Spring Boot: Provides production-ready tools (like monitoring, metrics, and health checks) with its Actuator module.
 
 -----------------------------------------------------------------------------------------------------------
+
+ChatGPT
+Dependency Injection (DI) and Inversion of Control (IoC) – Simple Explanation
+Dependency Injection (DI)
+
+Instead of creating objects inside a class, we inject them from outside.
+This makes our code more flexible and easier to manage.
+Inversion of Control (IoC)
+
+The control of object creation is given to a framework (like Spring).
+Instead of manually creating objects using new, the framework injects them when needed.
+Example Using XML Configuration in Java (Spring Framework)
+Step 1: Create the Dependency (Engine.java)
+java
+Copy
+Edit
+public class Engine {
+    public void start() {
+        System.out.println("Engine started...");
+    }
+}
+Step 2: Create the Dependent Class (Car.java)
+java
+Copy
+Edit
+public class Car {
+    private Engine engine; // Dependency
+
+    // Setter method for Dependency Injection
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public void drive() {
+        engine.start();
+        System.out.println("Car is running...");
+    }
+}
+Step 3: Configure Dependencies in XML (spring-config.xml)
+xml
+Copy
+Edit
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- Define the Engine bean -->
+    <bean id="engineBean" class="Engine"/>
+
+    <!-- Define the Car bean and inject Engine dependency -->
+    <bean id="carBean" class="Car">
+        <property name="engine" ref="engineBean"/>
+    </bean>
+
+</beans>
+Step 4: Load the XML and Run the Program (MainApp.java)
+java
+Copy
+Edit
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+    public static void main(String[] args) {
+        // Load Spring XML configuration
+        ApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+
+        // Get the Car bean
+        Car car = (Car) context.getBean("carBean");
+
+        // Use the Car object
+        car.drive();
+    }
+}
+How It Works?
+IoC Container (Spring) reads the spring-config.xml file.
+It creates objects (Engine and Car) and injects the Engine object into Car.
+The MainApp just fetches carBean and calls drive().
+Output:
+arduino
+Copy
+Edit
+Engine started...
+Car is running...
+Key Takeaways
+✅ DI: Injects objects instead of creating them manually.
+✅ IoC: Spring takes control of object creation and dependency management.
+✅ XML Configuration: We define dependencies in spring-config.xml, and Spring does the wiring.
+-------------------------------------------------------------------------------------------------
