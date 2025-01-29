@@ -348,3 +348,98 @@ Rest (...)	Collects multiple values into an array	function add(a, ...b) {}	b bec
 Spread (...)	Expands an array into individual values	const b = [...a]	Creates a copy of a
 
 --------------------------------------------------------------------------------
+  
+1️⃣ Function Expression (Declaring Function to a Variable)
+js
+Copy
+Edit
+var prod = function(n1, n2) {
+  return n1 * n2;
+};
+Here, prod is a variable that holds a function.
+This function multiplies two numbers.
+It is anonymous (no function name).
+🔹 Usage:
+
+js
+Copy
+Edit
+console.log(prod(3, 4)); // Output: 12
+2️⃣ Arrow Function (Shorter Syntax for Functions)
+Regular Arrow Function
+js
+Copy
+Edit
+var prod = (n1, n2) => {
+  return n1 * n2;
+};
+Same as the function expression but in a shorter way.
+One-Line Arrow Function
+js
+Copy
+Edit
+var prod = (n1, n2) => n1 * n2;
+When the function has only one return statement, you can remove {} and return.
+🔹 Usage:
+
+js
+Copy
+Edit
+console.log(prod(5, 2)); // Output: 10
+3️⃣ IIFE (Immediately Invoked Function Expression)
+js
+Copy
+Edit
+(function(a, b) {
+  console.log(a * b);
+})(4, 2);
+This function runs immediately after defining it.
+No need to call it separately.
+Use case: When you need to run code once and avoid polluting the global scope.
+🔹 Output:
+
+Copy
+Edit
+8
+4️⃣ Pure Function
+js
+Copy
+Edit
+function cal(n1, n2) {
+  return n1 * n2;
+}
+A pure function always gives the same result for the same inputs.
+It does not modify external variables.
+🔹 Example Usage:
+
+js
+Copy
+Edit
+console.log(cal(5, 3)); // Output: 15
+console.log(cal(5, 3)); // Always 15 (Same input, same output)
+5️⃣ Impure Function
+js
+Copy
+Edit
+const discount = 22;
+
+function cal(price) {
+  return price - discount;
+}
+This function is impure because it depends on the external discount variable.
+If discount changes, the function gives different results.
+🔹 Example Usage:
+
+js
+Copy
+Edit
+console.log(cal(100)); // Output: 78
+console.log(cal(100)); // Output changes if discount changes
+🔹 Summary
+Type	Explanation
+Function Expression	Function stored in a variable.
+Arrow Function	Shorter way to write functions.
+IIFE	Runs immediately after defining.
+Pure Function	Always gives same output for same input.
+Impure Function	Depends on external values, so the result may change.
+  -------------------------------------------------------------
