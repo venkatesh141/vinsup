@@ -138,3 +138,81 @@ Key Takeaways
 ✅ IoC: Spring takes control of object creation and dependency management.
 ✅ XML Configuration: We define dependencies in spring-config.xml, and Spring does the wiring.
 -------------------------------------------------------------------------------------------------
+
+init and destroy Methods in Spring Bean Lifecycle (XML Configuration)
+In Spring, beans go through a lifecycle, and we can define methods to initialize and clean up resources.
+
+1. init Method (Initialization)
+This method runs after the bean is created.
+Used for setting up resources (e.g., opening a database connection).
+2. destroy Method (Cleanup)
+This method runs before the bean is removed.
+Used for cleaning up resources (e.g., closing a file or releasing a connection).
+Example: Using init and destroy in XML-Based Configuration
+Step 1: Create a Bean Class (Car.java)
+java
+Copy
+Edit
+public class Car {
+    public void init() {
+        System.out.println("Car is being initialized...");
+    }
+
+    public void destroy() {
+        System.out.println("Car is being destroyed...");
+    }
+
+    public void drive() {
+        System.out.println("Car is running...");
+    }
+}
+Step 2: Define init and destroy Methods in XML (spring-config.xml)
+xml
+Copy
+Edit
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="carBean" class="Car" init-method="init" destroy-method="destroy"/>
+
+</beans>
+init-method="init" → Calls init() after the bean is created.
+destroy-method="destroy" → Calls destroy() before the bean is removed.
+Step 3: Load the XML and Run the Program (MainApp.java)
+java
+Copy
+Edit
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+    public static void main(String[] args) {
+        // Load Spring XML configuration
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-config.xml");
+
+        // Get the Car bean
+        Car car = (Car) context.getBean("carBean");
+
+        // Use the Car object
+        car.drive();
+
+        // Close the context to trigger destroy method
+        context.close();
+    }
+}
+context.close(); → Ensures the destroy() method is executed.
+Output:
+csharp
+Copy
+Edit
+Car is being initialized...
+Car is running...
+Car is being destroyed...
+Key Takeaways
+✅ init() → Runs after bean creation (used for setup).
+✅ destroy() → Runs before bean removal (used for cleanup).
+✅ Configured in XML → init-method="init" and destroy-method="destroy".
+✅ Need context.close(); → To trigger destroy() in a non-web application.
+-----------------------------------------------------------------------------------------
