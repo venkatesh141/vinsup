@@ -441,4 +441,83 @@ Flexibility: The same code can work for different types of objects.
 Reusability: You can write generic code that works for multiple object types.
 Extensibility: Easily add new functionality by overriding methods in subclasses.
 -----------------------------------------------
+ChatGPT
+Encapsulation in Java (Simple Explanation)
 
+Encapsulation means hiding the internal details of a class and allowing access only through getter and setter methods. It is like putting the data (variables) inside a protective wrapper and controlling how they are accessed or modified.
+Real-Life Example
+
+Think of a bank account:
+
+    Your balance is private (not directly accessible to others).
+    You can deposit or withdraw money, but only through specific functions (like ATM or banking apps).
+    This prevents unauthorized access and protects your data.
+
+Encapsulation in Java (Code Example)
+
+// BankAccount class with encapsulation
+class BankAccount {
+    private double balance; // Private variable (hidden from outside)
+
+    // Constructor to set initial balance
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    // Getter method to check balance
+    public double getBalance() {
+        return balance;
+    }
+
+    // Setter method to deposit money (with validation)
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        } else {
+            System.out.println("Invalid deposit amount.");
+        }
+    }
+
+    // Setter method to withdraw money (with validation)
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount);
+        } else {
+            System.out.println("Insufficient balance or invalid amount.");
+        }
+    }
+}
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+        BankAccount myAccount = new BankAccount(1000); // Create account with initial balance
+
+        System.out.println("Current Balance: " + myAccount.getBalance());
+        myAccount.deposit(500);  // Deposit money
+        myAccount.withdraw(300); // Withdraw money
+
+        System.out.println("Final Balance: " + myAccount.getBalance());
+    }
+}
+
+Output
+
+Current Balance: 1000.0
+Deposited: 500.0
+Withdrawn: 300.0
+Final Balance: 1200.0
+
+Key Points
+
+    Data Hiding: The variable balance is private, meaning it cannot be accessed directly.
+    Getter & Setter Methods: We use methods (getBalance(), deposit(), withdraw()) to access and modify the data safely.
+    Benefits of Encapsulation:
+        Security: Prevents direct modification of important data.
+        Control: We can add conditions (like preventing negative deposits).
+        Flexibility: We can change the internal code without affecting other parts of the program.
+
+👉 Encapsulation ensures that data is only modified in a controlled way! 🚀
+----------------------------------------------------------------------------------------------------------------------
