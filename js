@@ -635,5 +635,98 @@ This version does the same thing but in one line. 🚀 Let me know if you need m
 
 
 
+  
+These functions (map, reduce, filter, find, findIndex) help manipulate arrays easily. Let's understand them one by one with simple explanations.
+
+1️⃣ map() – Transform Each Element
+🔹 Used to create a new array by applying a function to each element.
+🔹 It does not change the original array.
+
+js
+Copy
+Edit
+const ip = [1, 2, 3, 4, 5];
+const squaredArray = ip.map((curr) => curr * curr);
+
+console.log(squaredArray);  // Output: [1, 4, 9, 16, 25]
+✅ How it works?
+
+Takes each element (curr) and squares it.
+Returns a new array: [1, 4, 9, 16, 25].
+2️⃣ reduce() – Combine All Elements into One Value
+🔹 Used to calculate a single value (e.g., sum, product).
+🔹 acc (accumulator) stores the result of previous operations.
+
+js
+Copy
+Edit
+const ip = [1, 2, 3, 4, 5];
+const sum = ip.reduce((acc, num) => acc + num, 0);
+
+console.log(sum); // Output: 15
+✅ How it works?
+
+acc starts from 0 (because of ,0).
+Adds each number: (0+1) → (1+2) → (3+3) → (6+4) → (10+5) = 15.
+🔸 If you don’t provide an initial value (0), the first element is used instead.
+
+3️⃣ filter() – Keep Elements That Match a Condition
+🔹 Used to select specific elements from an array.
+🔹 Returns a new array with only the elements that satisfy the condition.
+
+js
+Copy
+Edit
+const inputs = [1, 2, 3, 4, 5, 7, 8];
+const evens = inputs.filter((num) => num % 2 === 0);
+
+console.log(evens); // Output: [2, 4, 8]
+✅ How it works?
+
+Checks if num % 2 === 0 (even numbers).
+Returns [2, 4, 8] (only even numbers).
+4️⃣ find() – Get the First Matching Element
+🔹 Finds the first element that satisfies the condition.
+🔹 If no match is found, returns undefined.
+
+js
+Copy
+Edit
+const inputs = [1, 2, 3, 4, 5, 7, 8];
+const f1 = inputs.find((num) => num === 8);
+
+console.log(f1); // Output: 8
+✅ How it works?
+
+Looks for 8 in the array.
+Finds 8 and returns it.
+If 8 was missing, it would return undefined.
+5️⃣ findIndex() – Get Index of First Matching Element
+🔹 Finds the index of the first matching element.
+🔹 If no match is found, returns -1.
+
+js
+Copy
+Edit
+const inputs = [1, 2, 3, 4, 5, 7, 8];
+const f2 = inputs.findIndex((num) => num === 8);
+
+console.log(f2); // Output: 6
+✅ How it works?
+
+Finds 8 at index 6.
+If 8 was missing, it would return -1.
+Summary Table
+Method	Purpose	Returns
+map()	Transform elements	New array
+reduce()	Get a single value	Single value (sum, product, etc.)
+filter()	Keep matching elements	New array
+find()	Get first matching element	First match (or undefined)
+findIndex()	Get index of first match	Index (or -1 if not found)
+
+----------------------------------------------------------------------------------------
+
+
+
 
 
