@@ -772,6 +772,85 @@ In your example, the inner function keeps track of and updates the counter varia
   -------------------------------------------------------------------------------------------------------------------
 
 
+  What is JSON?
+JSON (JavaScript Object Notation) is a lightweight data format that is easy to read and write for humans, and easy to parse and generate for machines.
+It’s widely used to store and transfer data between a server and a client (such as in web applications).
+
+JSON is often used because it is:
+
+Language-independent: Can be used across different programming languages (not just JavaScript).
+Readable: Easy for both humans and computers to read and write.
+JSON Example:
+js
+Copy
+Edit
+const person = {
+   "name": "venky",
+   "age": "30",
+   "student": false
+};
+This is a JavaScript object. You can convert it to a JSON format or parse JSON data into a JavaScript object.
+
+Methods:
+1. JSON.parse() – Convert JSON String to JavaScript Object
+This method converts a JSON string into a JavaScript object so you can work with the data in your code.
+
+js
+Copy
+Edit
+const jsonString = '{"name": "venky", "age": "30", "student": false}';
+const parsedObject = JSON.parse(jsonString);
+
+console.log(parsedObject); // { name: 'venky', age: '30', student: false }
+✅ How it works?
+
+The string jsonString is JSON formatted.
+JSON.parse() converts it into a JavaScript object, so you can access the properties like parsedObject.name.
+2. JSON.stringify() – Convert JavaScript Object to JSON String
+This method converts a JavaScript object into a JSON string.
+
+js
+Copy
+Edit
+const person = { name: "venky", age: 30, student: false };
+const jsonString = JSON.stringify(person);
+
+console.log(jsonString); // '{"name":"venky","age":30,"student":false}'
+✅ How it works?
+
+JSON.stringify() takes the JavaScript object person and turns it into a JSON string.
+This string is now in a format that can be sent over the web, stored in a file, or logged to the console.
+JSON Usage:
+Data Exchange between Server and Client:
+
+When a web page requests data from a server, the server might send back JSON formatted data.
+The client (browser or app) uses JSON.parse() to convert the JSON string into a usable JavaScript object.
+Storing Data Locally:
+
+You can store data in JSON format in local storage (e.g., in web browsers) for later use.
+APIs and Web Services:
+
+Many APIs (like Google Maps or weather APIs) send and receive data in JSON format.
+The client uses JSON.stringify() to send data to the server and JSON.parse() to receive and work with the data.
+Summary Table:
+Method	What it Does
+JSON.parse()	Converts JSON string into JavaScript object.
+JSON.stringify()	Converts JavaScript object into JSON string.
+Conclusion:
+JSON is a data format used to transfer and store data.
+JSON.parse() turns a JSON string into a JavaScript object, and JSON.stringify() turns a JavaScript object into a JSON string.
+Let me know if you need more examples or further explanations! 😊
+
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
 
 
