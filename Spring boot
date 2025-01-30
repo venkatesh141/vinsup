@@ -216,3 +216,97 @@ Key Takeaways
 ✅ Configured in XML → init-method="init" and destroy-method="destroy".
 ✅ Need context.close(); → To trigger destroy() in a non-web application.
 -----------------------------------------------------------------------------------------
+Spring annotations
+ore jumping into the annotations, let's understand IoC (Inversion of Control) and DI (Dependency Injection) in simple terms.
+1. What is IoC (Inversion of Control)?
+
+    Normally, in Java, you create objects manually using new keyword.
+    In IoC, the control of object creation is given to the Spring Container, so Spring creates and manages the objects automatically.
+
+Example Without IoC (Manual Object Creation)
+
+public class MyApp {
+    public static void main(String[] args) {
+        MyService service = new MyService(); // We create the object manually
+        service.doSomething();
+    }
+}
+
+Example With IoC (Spring Manages Object)
+
+import org.springframework.stereotype.Component;
+
+@Component // Spring will create the object automatically
+public class MyService {
+    public void doSomething() {
+        System.out.println("Doing work...");
+    }
+}
+
+Here, @Component tells Spring to manage this object. So, we don't need to manually create it.
+2. What is DI (Dependency Injection)?
+
+    DI means automatically providing (injecting) objects into another object.
+    Instead of creating objects manually, Spring injects the required dependencies.
+    DI is a part of IoC.
+
+Example of Dependency Injection using @Autowired
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component // Marks this as a Spring Bean
+class MyService {
+    public void doSomething() {
+        System.out.println("Service is doing something...");
+    }
+}
+
+@Component // Another Spring Bean
+class MyController {
+
+    @Autowired // Injects MyService automatically
+    private MyService myService;
+
+    public void execute() {
+        myService.doSomething(); // Using the injected object
+    }
+}
+
+How It Works
+
+    IoC: Spring creates and manages MyService and MyController objects.
+    DI: Spring injects the MyService object into MyController.
+
+3. Using @Qualifier for Multiple Beans
+
+If there are multiple beans of the same type, we use @Qualifier to tell Spring which one to inject.
+
+@Component("service1")
+class FirstService {
+    public void work() {
+        System.out.println("First Service is working...");
+    }
+}
+
+@Component("service2")
+class SecondService {
+    public void work() {
+        System.out.println("Second Service is working...");
+    }
+}
+
+@Component
+class MyController {
+
+    @Autowired
+    @Qualifier("service2") // Specifies which bean to use
+    private SecondService myService;
+
+    public void execute() {
+        myService.work();
+    }
+}
+
+Here, @Qualifier("service2") tells Spring to inject SecondService instead of FirstService
+--------------------------------------------------------------------------------------.
