@@ -727,6 +727,51 @@ findIndex()	Get index of first match	Index (or -1 if not found)
 ----------------------------------------------------------------------------------------
 
 
+  What is a Closure?
+A closure is when a function has access to its own variables, the variables of the outer function, and the global variables, even after the outer function has finished executing.
+In simple terms, it allows an inner function to remember and access the variables of its outer function.
+
+Code Explanation
+Let’s break down your code step by step:
+
+js
+Copy
+Edit
+function generateID(value) {
+    let counter = value;  // Outer function variable
+
+    return function() {  // Inner function (closure)
+        let id = `A_2023_${counter}`; // Using outer function's 'counter'
+        counter++;  // Increment 'counter' each time the inner function is called
+        return id;
+    }
+}
+1. Outer Function (generateID)
+generateID takes a value (value) and creates a variable counter initialized with that value.
+Inside generateID, we return another function that does not take any parameters but uses the counter variable.
+2. Inner Function (Closure)
+The returned function is a closure because it "remembers" the counter variable from the outer function even after the outer function has finished running.
+Every time the inner function is called, it generates a new id using the counter, and then increments counter by 1.
+How it Works:
+js
+Copy
+Edit
+const func = generateID(99);
+console.log(func());  // Output: A_2023_99
+console.log(func());  // Output: A_2023_100
+1. generateID(99) Call
+When we call generateID(99), it returns the inner function (closure) and initializes counter to 99.
+2. Calling func()
+The first time we call func(), the closure uses counter = 99 to generate the ID A_2023_99.
+Then, it increments counter to 100 for the next time.
+3. Calling func() Again
+The second time we call func(), it uses the updated value of counter (100) and generates A_2023_100.
+In Simple Terms
+Closure allows the inner function to "remember" and continue working with variables from the outer function (even after the outer function has finished running).
+In your example, the inner function keeps track of and updates the counter variable each time it’s called.
+  -------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
