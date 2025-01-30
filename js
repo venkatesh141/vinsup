@@ -544,3 +544,57 @@ hello, function called
 
 
   -----------------------------------------------------------------------------
+Concept: Higher-Order Function
+A higher-order function is a function that:
+
+Takes another function as an argument (callback function).
+Returns a function or performs operations using the passed function.
+Code Implementation
+js
+Copy
+Edit
+const inputs = [2, 3, 4, 5, 6, 7];
+
+function operation(input, fn) {
+    const output = [];
+
+    for (let no of input) {
+        output.push(fn(no));  // Applying function (square or cube) to each element
+    }
+    return output;
+}
+
+function square(no) {
+    return no * no;
+}
+
+function cube(no) {
+    return no * no * no;
+}
+
+// Calling the operation function with square and cube
+console.log(operation(inputs, square)); // [4, 9, 16, 25, 36, 49]
+console.log(operation(inputs, cube));   // [8, 27, 64, 125, 216, 343]
+How It Works?
+operation() is a higher-order function because it takes another function (fn) as an argument.
+It loops through the inputs array and applies the given function (square or cube) to each number.
+output.push(fn(no)) stores the result.
+Finally, it returns the transformed array.
+Alternate Approach using map()
+Instead of using a loop, we can simplify using JavaScript’s map():
+
+js
+Copy
+Edit
+const operation = (input, fn) => input.map(fn);
+
+console.log(operation(inputs, square));
+console.log(operation(inputs, cube));
+This does the same thing but in a more concise way. 🚀 Let me know if you need further clarification!
+
+-----------------------------------------------------------------------------------------------------------
+
+
+
+
+
