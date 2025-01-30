@@ -444,6 +444,55 @@ Pure Function	Always gives same output for same input.
 Impure Function	Depends on external values, so the result may change.
   -------------------------------------------------------------
 
+  This code shows a function returning another function in JavaScript. Let’s break it down step by step:
+
+Step 1: Defining the Outer Function
+js
+Copy
+Edit
+function greet(message) {
+    return function(wishes) {
+        console.log(` ${wishes} , ${message}`);  
+    };
+}
+The greet function takes one parameter: message.
+It returns another inner function that takes one more parameter: wishes.
+Inside the inner function, it prints wishes followed by message.
+Step 2: Calling the Function
+js
+Copy
+Edit
+const greeting = greet('i hope '); // 'i hope ' is stored as message
+greet('i hope ') returns a function that expects a wishes argument.
+The returned function is stored in the greeting variable.
+Step 3: Calling the Inner Function
+js
+Copy
+Edit
+greeting("congrats");
+This calls the returned function with "congrats" as wishes.
+The output will be:
+css
+Copy
+Edit
+ congrats , i hope 
+Alternate Way to Call Directly
+js
+Copy
+Edit
+greet('i hope')('congrats');
+Here, we call greet('i hope'), which returns a function.
+Then, we immediately call that returned function with "congrats", producing the same output.
+In Simple Terms
+greet() gives back a function.
+That function takes another input and prints the message.
+Think of it like a template:
+
+greet("i hope") creates a sentence template waiting for another word.
+greeting("congrats") fills the missing word and prints the full sentence.
+
+  ------------------------------------------------------------------------
+
   Callback Function in JavaScript (Simple Explanation) 😊
 A callback function is a function that is passed as an argument to another function and is executed inside that function.
 
