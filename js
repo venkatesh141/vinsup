@@ -595,6 +595,45 @@ This does the same thing but in a more concise way. 🚀 Let me know if you need
 -----------------------------------------------------------------------------------------------------------
 
 
+  Here’s the same currying concept implemented again:
+
+What is Currying?
+Currying is a technique where:
+
+A function does not take all arguments at once.
+Instead, it returns another function that takes the next argument.
+This continues until all arguments are provided.
+Code Implementation
+js
+Copy
+Edit
+function add(a) {
+    return function (b) {
+        return function (c) {
+            return a + b + c;
+        };
+    };
+}
+
+let a = 1, b = 2, c = 3;
+console.log(add(a)(b)(c)); // Output: 6
+How It Works?
+add(a) returns a function waiting for b.
+add(a)(b) returns another function waiting for c.
+add(a)(b)(c) finally returns a + b + c.
+Arrow Function Version (Shorter)
+js
+Copy
+Edit
+const add = a => b => c => a + b + c;
+
+console.log(add(1)(2)(3)); // Output: 6
+This version does the same thing but in one line. 🚀 Let me know if you need more examples! 😊
+
+
+--------------------------------------------------------------------------------------------------
+
+
 
 
 
