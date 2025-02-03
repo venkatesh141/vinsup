@@ -139,3 +139,181 @@ System.out.println(result); // Output: 4
 
 
 ---------------------------------------------------------------------------------------
+Exception handling 
+
+
+Exception Handling in Simple Terms
+Imagine you are withdrawing money from an ATM. If you enter an amount greater than your account balance, the ATM shows an error message instead of crashing. This is similar to exception handling in Java—it helps prevent a program from crashing when something unexpected happens.
+
+What is an Exception?
+An exception is an error that occurs during program execution. If not handled, it stops the program.
+
+Example of an exception:
+
+java
+Copy
+Edit
+int a = 10;
+int b = 0;
+int c = a / b; // This will cause an error (ArithmeticException)
+Since division by zero is not allowed, the program will crash.
+
+How to Handle Exceptions?
+We use try, catch, and finally blocks.
+
+try – The risky code goes inside this block.
+catch – Catches and handles the exception.
+finally – Runs whether an exception occurs or not (optional).
+Example: Handling Division by Zero
+java
+Copy
+Edit
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int a = 10;
+            int b = 0;
+            int c = a / b; // Risky code
+            System.out.println(c);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Division by zero is not allowed.");
+        }
+        System.out.println("Program continues...");
+    }
+}
+Output:
+
+vbnet
+Copy
+Edit
+Error: Division by zero is not allowed.
+Program continues...
+Without exception handling, the program would crash. With exception handling, it displays an error message and continues execution.
+
+Types of Exceptions
+Checked Exceptions – Must be handled (e.g., IOException, SQLException).
+Unchecked Exceptions – Occur at runtime (e.g., ArithmeticException, NullPointerException).
+Using finally
+java
+Copy
+Edit
+try {
+    int num = 5 / 0;
+} catch (ArithmeticException e) {
+    System.out.println("Caught exception: " + e);
+} finally {
+    System.out.println("This block always executes.");
+}
+Throwing Custom Exceptions
+You can create your own exception using throw.
+
+java
+Copy
+Edit
+class CustomExceptionExample {
+    public static void main(String[] args) {
+        int age = 15;
+        if (age < 18) {
+            throw new ArithmeticException("You must be 18 or older.");
+        }
+        System.out.println("You are eligible.");
+    }
+}
+Output:
+
+cpp
+Copy
+Edit
+Exception in thread "main" java.lang.ArithmeticException: You must be 18 or older.
+Summary
+Exceptions help prevent program crashes.
+Use try-catch to handle errors.
+finally always executes.
+throw creates custom exceptions.
+Would you like me to explain anything further? 😊
+
+
+
+
+
+
+
+
+You said:
+checked exceptions and unchecked exceptions give code and explain 
+ChatGPT said:
+ChatGPT
+Checked vs. Unchecked Exceptions in Simple Terms
+In Java, exceptions are divided into two types:
+
+Checked Exceptions – These must be handled at compile-time.
+Unchecked Exceptions – These occur at runtime and can be avoided by writing proper code.
+1. Checked Exceptions (Compile-Time Exceptions)
+These exceptions are checked by the compiler.
+If not handled, the program won’t compile.
+Examples: IOException, SQLException, InterruptedException.
+Example: Handling Checked Exception
+Let’s say we are trying to read a file. If the file is missing, a FileNotFoundException occurs.
+
+java
+Copy
+Edit
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class CheckedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            File file = new File("nonexistent.txt"); // The file does not exist
+            Scanner scanner = new Scanner(file); // Risky code
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+            scanner.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Error: File not found!");
+        }
+    }
+}
+Output:
+
+arduino
+Copy
+Edit
+Error: File not found!
+☑️ Since FileNotFoundException is a checked exception, Java forces us to handle it using try-catch.
+
+2. Unchecked Exceptions (Runtime Exceptions)
+These are not checked at compile-time.
+They occur due to logic errors in the code.
+Examples: ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException.
+Example: Unchecked Exception
+java
+Copy
+Edit
+public class UncheckedExceptionExample {
+    public static void main(String[] args) {
+        int numbers[] = {1, 2, 3};
+        System.out.println(numbers[5]); // Accessing index that doesn’t exist
+    }
+}
+Output:
+
+pgsql
+Copy
+Edit
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 5 out of bounds for length 3
+🔴 Since this is an unchecked exception, Java does not force us to handle it, but if it occurs, the program will crash.
+
+Key Differences Between Checked and Unchecked Exceptions
+Feature	Checked Exception	Unchecked Exception
+Checked at Compile Time?	Yes	No
+Handling Required?	Yes, must use try-catch or throws	No, but recommended
+Examples	IOException, SQLException, InterruptedException	ArithmeticException, NullPointerException, ArrayIndexOutOfBoundsException
+Cause	External factors (file not found, network failure)	Logical errors in code
+Summary
+Checked Exceptions → Must be handled (try-catch), like file operations.
+Unchecked Exceptions → Occur at runtime, like division by zero.
+
+------------------------------------------------------------------------------------------------------
