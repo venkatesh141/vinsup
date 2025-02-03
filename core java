@@ -317,3 +317,76 @@ Checked Exceptions → Must be handled (try-catch), like file operations.
 Unchecked Exceptions → Occur at runtime, like division by zero.
 
 ------------------------------------------------------------------------------------------------------
+Packages
+
+
+Packages in Java (Simple Explanation)
+What is a Package?
+A package in Java is like a folder that organizes related Java files together. It helps to:
+✅ Avoid name conflicts
+✅ Make code reusable and manageable
+✅ Provide access control
+
+Example: Why Use Packages?
+Imagine you have two classes named Student—one for school records and another for college records. Without packages, Java gets confused.
+
+✅ Solution? Put them in different packages.
+
+Copy
+Edit
+school.Student
+college.Student
+How to Create and Use Packages?
+1. Creating a Package
+Use the package keyword at the top of the Java file.
+
+java
+Copy
+Edit
+package mypackage;  // Package name
+
+public class Hello {
+    public void sayHello() {
+        System.out.println("Hello from mypackage!");
+    }
+}
+📌 Save this file as Hello.java inside a folder named mypackage.
+
+2. Using a Package in Another Class
+To use a class from a package, we use import.
+
+java
+Copy
+Edit
+import mypackage.Hello;  // Import the Hello class from mypackage
+
+public class Test {
+    public static void main(String[] args) {
+        Hello obj = new Hello();
+        obj.sayHello();
+    }
+}
+Types of Packages
+1️⃣ Built-in Packages – Java’s pre-defined packages (e.g., java.util, java.io)
+2️⃣ User-defined Packages – Custom packages created by developers
+
+Example: Built-in Package (java.util)
+java
+Copy
+Edit
+import java.util.Scanner; // Importing Scanner class
+
+public class BuiltInExample {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your name: ");
+        String name = sc.nextLine();
+        System.out.println("Hello, " + name);
+    }
+}
+Summary
+✅ Packages are like folders that organize Java classes.
+✅ Use package to define a package.
+✅ Use import to use a class from another package.
+✅ Java has built-in packages (like java.util) and user-defined packages.
+---------------------------------------------------------------------
