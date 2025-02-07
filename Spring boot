@@ -615,3 +615,86 @@ public class HomeController {
 @RequestMapping → Maps a URL to a method.
 
 -------------------------------------------------------------------------------
+
+
+1️⃣ Defining the Controller
+java
+Copy
+Edit
+@Controller
+public class SignUpController {
+@Controller → Tells Spring Boot that this class will handle web requests.
+public class SignUpController → Creates a class named SignUpController that will manage user sign-ups.
+2️⃣ Injecting the UserService
+java
+Copy
+Edit
+@Autowired
+UserService userService;
+@Autowired → Automatically injects an instance of UserService into this class.
+UserService userService; → This object will be used to handle user-related tasks (like getting and saving user details).
+UserService is another class (not shown here) that contains logic for user sign-up.
+3️⃣ Handling the Sign-Up Page (/signUp)
+java
+Copy
+Edit
+@RequestMapping("/signUp")
+public String getSignUpPage(Model uiModel) {
+    User user = userService.getUser();
+    uiModel.addAttribute("user", user);
+    return "signup";
+}
+Line-by-Line Breakdown
+@RequestMapping("/signUp")
+
+This method runs when a user visits http://localhost:8080/signUp.
+public String getSignUpPage(Model uiModel) {
+
+This method returns the name of the view (HTML or JSP page) to be shown.
+It also takes a Model object (uiModel) to send data to the frontend.
+User user = userService.getUser();
+
+Calls userService.getUser() to fetch a user object (which contains user details like name, email, etc.).
+uiModel.addAttribute("user", user);
+
+Adds the user object to the model, so the webpage can use it.
+The signup.jsp or signup.html file can now access user details.
+return "signup";
+
+Tells Spring Boot to show the "signup" page (either signup.jsp or signup.html).
+4️⃣ Handling User Registration (/registerUser)
+java
+Copy
+Edit
+@RequestMapping("/registerUser")
+public String createdUser(@ModelAttribute(value = "user") StudentUser studentUser) {
+    if(userService.signUp(studentUser.getName(), studentUser.getGender(), studentUser.getLocation(), studentUser.getCollege())) {
+        return "welcome";
+    }
+    return "signup";
+}
+Line-by-Line Breakdown
+@RequestMapping("/registerUser")
+
+Runs when the user submits the sign-up form (sent to http://localhost:8080/registerUser).
+public String createdUser(@ModelAttribute(value = "user") StudentUser studentUser) {
+
+The form data (name, gender, location, college) is stored in a StudentUser object.
+@ModelAttribute("user") binds the form input to the studentUser object.
+if(userService.signUp(studentUser.getName(), studentUser.getGender(), studentUser.getLocation(), studentUser.getCollege())) {
+
+Calls userService.signUp(...) to register the user.
+The method returns true if the registration is successful.
+return "welcome";
+
+If registration is successful, show the "welcome" page.
+return "signup";
+
+If registration fails, stay on the "signup" page.
+Final Flow of Execution
+User visits /signUp, and the sign-up form is shown.
+User fills in details and submits the form.
+Data is sent to /registerUser, where userService.signUp(...) runs.
+If successful → Show "welcome" page.
+If failed → Stay on the "signup" page.
+-------------------------------------------------------------------------------------------------
