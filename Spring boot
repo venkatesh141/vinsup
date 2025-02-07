@@ -310,3 +310,85 @@ class MyController {
 
 Here, @Qualifier("service2") tells Spring to inject SecondService instead of FirstService
 --------------------------------------------------------------------------------------.
+MVC Core in Spring Boot (Simple Explanation)
+
+MVC stands for Model-View-Controller, which is a design pattern used in Spring Boot to structure web applications. It helps in separating different parts of your application to make it more organized and manageable.
+Three Main Parts of MVC in Spring Boot
+
+    Model (M) – Represents the data and business logic of the application.
+        Example: A User class that contains user details like name, email, and age.
+
+    View (V) – Represents the user interface (UI) that the user interacts with.
+        Example: An HTML or JSP page that displays user details in a web browser.
+
+    Controller (C) – Handles user requests, processes data, and returns the response.
+        Example: A UserController class that processes user-related requests like getting user details or saving user data.
+
+How MVC Works in Spring Boot?
+
+    User sends a request (e.g., clicking a button to get user details).
+    Controller receives the request and calls the Model to fetch or process data.
+    Model processes the data (e.g., fetching from a database) and sends it back to the Controller.
+    Controller sends the data to the View (e.g., an HTML or JSP page).
+    View displays the data to the user in a readable format.
+
+Example Code in Spring Boot
+Model (User.java)
+
+public class User {
+    private String name;
+    private int age;
+
+    // Constructor
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Getters
+    public String getName() { return name; }
+    public int getAge() { return age; }
+}
+
+Controller (UserController.java)
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class UserController {
+
+    @GetMapping("/user")
+    public String getUser(Model model) {
+        User user = new User("Venkatesh", 25);
+        model.addAttribute("user", user);
+        return "userView"; // Sends data to the View (userView.html)
+    }
+}
+
+View (userView.html - Thymeleaf)
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Details</title>
+</head>
+<body>
+    <h2>User Details</h2>
+    <p>Name: ${user.name}</p>
+    <p>Age: ${user.age}</p>
+</body>
+</html>
+
+Conclusion
+
+    Model handles data (e.g., User class).
+    Controller processes requests (@GetMapping("/user")).
+    View displays data (userView.html).
+
+This structure makes the application organized, scalable, and easy to manage. Let me know if you need further simplification! 😊
+You said:
+-----------------------------------------------------------------------------------------------
+
+
