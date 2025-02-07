@@ -595,3 +595,23 @@ Use orElseThrow() to throw an exception if value is missing.
 
 -------------------------------------------------------------------------------
 
+MVC code with explanation 
+
+package com.example.website.web;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HomeController {
+ @RequestMapping("/home")
+ public String getHomePage() {
+	 return "home";
+ }
+}
+
+
+@Controller → Marks the class as a controller that handles web requests.
+@RequestMapping → Maps a URL to a method.
+
+-------------------------------------------------------------------------------
