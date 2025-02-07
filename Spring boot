@@ -511,5 +511,14 @@ It is easier than Servlets for web development.
 It is commonly used in Java web applications.
 
 -----------------------------------------------------------------------------------------------
+Understanding Service, Repository, Domain, and Controller Layers in Simple Terms
+When building a web application using Spring Boot (or Java in general), we organize the code into different layers to keep it clean and manageable. The four main layers are:
 
+Layer	Purpose	Example
+Controller	Handles user requests	"User clicks a button" → Controller processes it
+Service	Business logic layer	"Calculate discount, validate input"
+Repository	Communicates with the database	"Fetch user details from DB"
+Domain (Model/Entity)	Represents real-world data	"User, Product, Order objects"
+
+--------------------------------------------------------------------------------------
 
