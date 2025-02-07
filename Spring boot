@@ -521,4 +521,77 @@ Repository	Communicates with the database	"Fetch user details from DB"
 Domain (Model/Entity)	Represents real-world data	"User, Product, Order objects"
 
 --------------------------------------------------------------------------------------
+What is Optional in Java? (Simple Explanation)
+In Java, Optional is a container object that may or may not contain a value. It helps avoid NullPointerException by providing a way to handle missing or empty values safely.
+
+🔹 Before Optional (Risk of NullPointerException)
+
+java
+Copy
+Edit
+public String getUserEmail(User user) {
+    return user.getEmail(); // If user is null, this throws NullPointerException!
+}
+If user is null, calling getEmail() will crash the program.
+
+How Optional Solves This Problem
+With Optional, you check if a value is present before using it.
+
+🔹 Using Optional Safely
+
+java
+Copy
+Edit
+public Optional<String> getUserEmail(User user) {
+    return Optional.ofNullable(user.getEmail()); // Returns Optional<String>
+}
+
+public void printEmail(User user) {
+    getUserEmail(user).ifPresent(email -> System.out.println("Email: " + email));
+}
+👉 If user is null or email is null, it won’t crash!
+
+Creating an Optional
+Method	Description	Example
+Optional.of(value)	Creates an Optional with a non-null value	Optional<String> opt = Optional.of("Hello");
+Optional.ofNullable(value)	Creates an Optional, but allows null	Optional<String> opt = Optional.ofNullable(null);
+Optional.empty()	Creates an empty Optional	Optional<String> opt = Optional.empty();
+Checking and Using Optional
+✅ 1. isPresent() - Check if Value Exists
+java
+Copy
+Edit
+Optional<String> opt = Optional.ofNullable("Java");
+if (opt.isPresent()) {
+    System.out.println("Value: " + opt.get()); // Prints "Java"
+}
+✅ 2. ifPresent() - Run Code Only if Value Exists
+java
+Copy
+Edit
+opt.ifPresent(value -> System.out.println("Value: " + value));
+✅ 3. orElse() - Provide Default Value if Empty
+java
+Copy
+Edit
+String result = opt.orElse("Default Value");
+System.out.println(result);
+✅ 4. orElseGet() - Provide Default from a Function
+java
+Copy
+Edit
+String result = opt.orElseGet(() -> "Generated Default Value");
+✅ 5. orElseThrow() - Throw Exception if Empty
+java
+Copy
+Edit
+String result = opt.orElseThrow(() -> new RuntimeException("No Value Present"));
+Final Summary
+Optional avoids NullPointerException by handling null safely.
+Use ofNullable(value) to create an Optional that allows null.
+Use isPresent() or ifPresent() to check if a value exists.
+Use orElse() or orElseGet() to provide default values.
+Use orElseThrow() to throw an exception if value is missing.
+
+-------------------------------------------------------------------------------
 
