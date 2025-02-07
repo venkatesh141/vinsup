@@ -456,3 +456,60 @@ hello.jsp (View): Displays the data.
 -----------------------------------------------------------------------------------------------
 
 
+What is JSP? (Java Server Pages) - Simple Explanation
+JSP (Java Server Pages) is a technology used to create dynamic web pages using Java. It allows you to write Java code inside HTML to generate web content dynamically on the server before sending it to the browser.
+
+Why Use JSP?
+Dynamic Content – You can generate HTML dynamically using Java.
+Separation of Code & UI – Java code runs on the server, and HTML is displayed in the browser.
+Better than Servlets – Writing HTML inside Java code (Servlets) is messy, so JSP makes it cleaner.
+Works with Java – Since JSP is Java-based, it integrates well with Java applications.
+How JSP Works?
+A user requests a JSP page in the browser.
+The server converts JSP into a Servlet (Java code).
+The Servlet processes the request and generates a response.
+The HTML page is sent back to the browser.
+Example Flow:
+
+scss
+Copy
+Edit
+User → (Request) → JSP → (Converted to Servlet) → Processed → (Response) → Browser
+Simple JSP Code Example
+jsp
+Copy
+Edit
+<%@ page language="java" contentType="text/html; charset=UTF-8" %>
+<html>
+<head>
+    <title>JSP Example</title>
+</head>
+<body>
+    <h2>Welcome to JSP!</h2>
+    <p>Current Time: <%= new java.util.Date() %></p>
+</body>
+</html>
+Explanation:
+
+<%= new java.util.Date() %> is Java code inside JSP, which prints the current date & time.
+The server processes this before sending the HTML to the browser.
+JSP Syntax Basics
+Syntax	Description	Example
+Directives (<%@ %>)	Defines page settings	<%@ page language="java" %>
+Scriptlet (<% %>)	Java code inside JSP	<% int a = 10; %>
+Expression (<%= %>)	Output Java values	<%= a * 2 %> → 20
+Declaration (<%! %>)	Declare variables/methods	<%! int x = 100; %>
+Where is JSP Used?
+Login pages (validating users).
+Displaying data from databases.
+Generating reports dynamically.
+Processing user inputs (e.g., forms).
+Final Summary
+JSP is Java + HTML used for dynamic web pages.
+It runs on the server and outputs HTML.
+It is easier than Servlets for web development.
+It is commonly used in Java web applications.
+
+-----------------------------------------------------------------------------------------------
+
+
