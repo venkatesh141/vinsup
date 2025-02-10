@@ -697,3 +697,85 @@ public class Main
 }
 
 -----------------------------------------------------------------------------
+
+Break and Continue in Java (Simple Explanation)
+1️⃣ break Statement
+Stops the loop immediately when a condition is met.
+Exits the loop completely.
+Example: Stop printing numbers when 5 is found
+java
+Copy
+Edit
+public class BreakExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                break;  // Stops the loop when i = 5
+            }
+            System.out.println(i);
+        }
+    }
+}
+Output:
+
+Copy
+Edit
+1  
+2  
+3  
+4  
+🔹 The loop stops when `i ==
+
+
+
+
+
+
+
+
+You said:
+continue 
+ChatGPT said:
+2️⃣ continue Statement
+Skips the current iteration when a condition is met.
+Does NOT exit the loop, it just moves to the next iteration.
+Example: Skip printing 5 but continue the loop
+java
+Copy
+Edit
+public class ContinueExample {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            if (i == 5) {
+                continue;  // Skips when i = 5 and moves to the next iteration
+            }
+            System.out.println(i);
+        }
+    }
+}
+Output:
+
+Copy
+Edit
+1  
+2  
+3  
+4  
+6  
+7  
+8  
+9  
+10  
+🔹 5 is skipped, but the loop continues running for other numbers.
+
+-------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
