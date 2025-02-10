@@ -390,3 +390,209 @@ Summary
 ✅ Use import to use a class from another package.
 ✅ Java has built-in packages (like java.util) and user-defined packages.
 ---------------------------------------------------------------------
+Exception Handling in Java (Simple Explanation)
+What is an Exception?
+An exception is an unexpected event that happens during program execution, causing the program to stop abnormally. Example:
+
+Dividing a number by zero
+Accessing an invalid index in an array
+Opening a file that doesn’t exist
+What is Exception Handling?
+Exception handling is a way to handle errors so that the program doesn’t crash. Instead of stopping, we can catch the error and show a meaningful message or take an alternative action.
+
+How to Handle Exceptions in Java?
+1. Using try and catch
+We write code inside a try block. If an exception occurs, it is caught in the catch block.
+
+Example:
+java
+Copy
+Edit
+public class ExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;  // This will cause an exception (division by zero)
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        }
+        System.out.println("Program continues...");
+    }
+}
+Output:
+
+csharp
+Copy
+Edit
+Cannot divide by zero!
+Program continues...
+Even though an error happened, the program did not stop because we handled it using try-catch.
+
+2. Using finally (Optional)
+The finally block always executes, whether an exception occurs or not.
+
+Example:
+java
+Copy
+Edit
+public class FinallyExample {
+    public static void main(String[] args) {
+        try {
+            int num = 10 / 0;
+        } catch (ArithmeticException e) {
+            System.out.println("Cannot divide by zero!");
+        } finally {
+            System.out.println("This will always execute.");
+        }
+    }
+}
+Output:
+
+pgsql
+Copy
+Edit
+Cannot divide by zero!
+This will always execute.
+3. Using throws (Telling the Method to Handle Exception)
+If a method might cause an exception, we tell Java using throws.
+
+Example:
+java
+Copy
+Edit
+public class ThrowsExample {
+    static void divide() throws ArithmeticException {
+        int num = 10 / 0;  // This causes an exception
+    }
+
+    public static void main(String[] args) {
+        try {
+            divide();
+        } catch (ArithmeticException e) {
+            System.out.println("Exception handled in main.");
+        }
+    }
+}
+Output:
+
+css
+Copy
+Edit
+Exception handled in main.
+4. Using throw (Manually Creating an Exception)
+If we want to manually throw an exception, we use throw.
+
+Example:
+java
+Copy
+Edit
+public class ThrowExample {
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("Not eligible to vote.");
+        } else {
+            System.out.println("You can vote.");
+        }
+    }
+
+    public static void main(String[] args) {
+        checkAge(16);  // This will throw an exception
+    }
+}
+Output:
+
+pgsql
+Copy
+Edit
+Exception in thread "main" java.lang.ArithmeticException: Not eligible to vote.
+Types of Exceptions
+1. Checked Exceptions (Compile-Time Exceptions)
+These exceptions are checked by the compiler. We must handle them using try-catch or throws.
+Examples:
+
+IOException (When working with files)
+SQLException (When working with databases)
+Example:
+java
+Copy
+Edit
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class CheckedExceptionExample {
+    public static void main(String[] args) {
+        try {
+            File file = new File("test.txt");  // File may not exist
+            Scanner sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
+    }
+}
+2. Unchecked Exceptions (Runtime Exceptions)
+These exceptions occur at runtime and are not checked by the compiler.
+Examples:
+
+ArithmeticException (Divide by zero)
+NullPointerException (Accessing an object that is null)
+ArrayIndexOutOfBoundsException (Accessing an invalid index in an array)
+Example:
+java
+Copy
+Edit
+public class UncheckedExceptionExample {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 3};
+        System.out.println(arr[5]);  // Invalid index
+    }
+}
+Output:
+
+cpp
+Copy
+Edit
+Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 5
+3. Custom Exceptions (User-Defined Exceptions)
+We can create our own exceptions by extending the Exception class.
+
+Example:
+java
+Copy
+Edit
+class MyException extends Exception {
+    public MyException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    static void checkNumber(int num) throws MyException {
+        if (num < 0) {
+            throw new MyException("Negative number not allowed.");
+        } else {
+            System.out.println("Valid number.");
+        }
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkNumber(-5);
+        } catch (MyException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+Output:
+
+typescript
+Copy
+Edit
+Negative number not allowed.
+Key Points to Remember
+Use try-catch to handle exceptions.
+finally always executes, even if an exception occurs.
+Use throws to declare exceptions in methods.
+Use throw to manually throw exceptions.
+Checked exceptions must be handled. Unchecked exceptions occur at runtime.
+We can create custom exceptions by extending the Exception class.
+------------------------------------------------------------------------------
