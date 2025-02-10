@@ -596,3 +596,64 @@ Use throw to manually throw exceptions.
 Checked exceptions must be handled. Unchecked exceptions occur at runtime.
 We can create custom exceptions by extending the Exception class.
 ------------------------------------------------------------------------------
+Switch case 
+
+
+//switch case 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner io=new Scanner(System.in);
+	  int n=io.nextInt();
+	  switch(n)
+	  {
+	      case 1:
+	          {
+	             System.out.println("monday"); 
+	            break;
+	          }
+	      case 2:
+	          {
+	              
+	             System.out.println("tuesday");
+	             break;
+	          }
+	      case 3:
+	          {
+	              
+	             System.out.println("wednesday");
+	             break;
+	          }
+	      case 4:
+	          {
+	              
+	             System.out.println("thursday");
+	             break;
+	          }
+	      case 5:
+	           {
+	               
+	             System.out.println("friday");
+	             break;
+	           }
+	      case 6:
+	          {
+	              
+	             System.out.println("saturday");
+	             break;
+	          }
+	          case 7:
+	              {
+	                  System.out.println("sunday");
+	                  break;
+	              }
+	      default:
+	      {
+	          System.out.println("out of input");
+	      }
+	  }
+		
+	}
+}
+------------------------------------------------------------
