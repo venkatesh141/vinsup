@@ -657,3 +657,43 @@ public class Main
 	}
 }
 ------------------------------------------------------------
+
+
+//switch case 
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	  Scanner io=new Scanner(System.in);
+	  String input=io.next();
+	  //sunday,monday,tuesday
+	  switch(input)
+	  {
+	      case "sunday":
+	          {
+	              System.out.println("1");
+	              break;
+	          }
+	       case "monday":
+	           {
+	               
+	              System.out.println("2");
+	               break;
+	           }
+	       case "tuesday":
+	           {
+	               
+	              System.out.println("3");
+	               break;
+	           }
+	       default:
+	       {
+	           
+	              System.out.println("out of input");
+	       }
+	  }
+		
+	}
+}
+
+-----------------------------------------------------------------------------
