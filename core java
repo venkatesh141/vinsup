@@ -914,6 +914,146 @@ protected	✅	✅	✅	❌
 ----------------------------------------------------------------------------------------
 
 
+static in Java (Simple Explanation)
+The static keyword in Java means "shared" or "belongs to the class, not to an object."
+
+When something is static, it belongs to the class itself, not to individual objects. This means:
+
+You don’t need to create an object to access it.
+It is shared among all objects of the class.
+Where Can We Use static?
+Static Variables (shared across all objects)
+Static Methods (can be called without creating an object)
+Static Blocks (runs only once when the class is loaded)
+Static Classes (nested classes that don’t need an outer class instance)
+1. Static Variables (Class Variables)
+A static variable is shared among all objects of the class.
+
+Example:
+java
+Copy
+Edit
+class Example {
+    static int count = 0; // Shared among all objects
+
+    Example() {
+        count++; // Increases when an object is created
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Example obj1 = new Example();
+        Example obj2 = new Example();
+        Example obj3 = new Example();
+
+        System.out.println(Example.count); // Output: 3 (same for all)
+    }
+}
+✅ Even if we create multiple objects, count is shared and updated for all.
+
+2. Static Methods
+A static method belongs to the class and can be called without creating an object.
+It cannot access non-static variables (because non-static variables belong to objects, and objects may not exist yet).
+Example:
+java
+Copy
+Edit
+class Example {
+    static void show() {
+        System.out.println("Hello from a static method!");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Example.show(); // No object needed
+    }
+}
+✅ We called show() without creating an object!
+
+🚫 Static methods CANNOT use non-static variables directly.
+
+java
+Copy
+Edit
+class Example {
+    int num = 10; // Non-static variable
+
+    static void show() {
+        System.out.println(num); // ❌ ERROR (non-static variable)
+    }
+}
+✔ Fix: Use a static variable or create an object.
+
+java
+Copy
+Edit
+class Example {
+    static int num = 10; // Static variable
+
+    static void show() {
+        System.out.println(num); // ✅ Allowed
+    }
+}
+3. Static Block (Runs Once When Class Loads)
+A static block runs only once when the class is first loaded into memory.
+
+Example:
+java
+Copy
+Edit
+class Example {
+    static {
+        System.out.println("Static block executed!"); // Runs only once
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Example obj1 = new Example();
+        Example obj2 = new Example();
+    }
+}
+✅ Output:
+
+scss
+Copy
+Edit
+Static block executed!
+(Even if we create multiple objects, the static block runs only once.)
+
+4. Static Nested Class (Doesn’t Need Outer Class Instance)
+A static class inside another class can be used without creating an object of the outer class.
+
+Example:
+java
+Copy
+Edit
+class Outer {
+    static class Inner {
+        void show() {
+            System.out.println("Static inner class method");
+        }
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Outer.Inner obj = new Outer.Inner(); // No need for Outer object
+        obj.show();
+    }
+}
+Quick Summary
+static Feature	What it Does?
+Static Variable	Shared among all objects (single copy)
+Static Method	Can be called without an object
+Static Block	Runs once when the class is loaded
+Static Class	Inner class that doesn’t need an outer class instance
+
+-----------------------------------------------------------------------------------
+
+
 
 
 
