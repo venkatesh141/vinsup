@@ -723,14 +723,7 @@ Edit
 1  
 2  
 3  
-4  
-🔹 The loop stops when `i ==
-
-
-
-
-
-
+4  🔹 The loop stops when `i ==
 
 
 You said:
@@ -769,6 +762,62 @@ Edit
 🔹 5 is skipped, but the loop continues running for other numbers.
 
 -------------------------------------------------------------------------------------
+Package 
+Packages in Java (Simple Explanation)
+A package in Java is like a folder that helps organize your Java files (classes, interfaces, etc.). It groups similar types of classes together, making the code structured, reusable, and easy to manage.
+
+Why Use Packages?
+Avoids Name Conflicts – Two classes can have the same name if they are in different packages.
+Organizes Code – Helps keep related classes together.
+Provides Access Control – Some classes can be hidden from other packages.
+Reusability – We can use existing packages in multiple projects.
+Types of Packages in Java
+Built-in Packages – These are already available in Java (e.g., java.util, java.io).
+User-defined Packages – Created by programmers to organize their own code.
+How to Create a Package?
+Declare a package at the top of the Java file
+Save the file in a folder with the same package name
+Example:
+
+java
+Copy
+Edit
+package mypackage;  // Creating a package named "mypackage"
+
+public class Hello {
+    public void greet() {
+        System.out.println("Hello from mypackage!");
+    }
+}
+How to Use a Package?
+To use a class from another package, we use the import keyword.
+
+Example:
+
+java
+Copy
+Edit
+import mypackage.Hello;  // Importing the Hello class from "mypackage"
+
+public class Test {
+    public static void main(String[] args) {
+        Hello obj = new Hello();  // Creating an object of Hello
+        obj.greet();  // Calling the method
+    }
+}
+Common Built-in Packages
+java.util → For utility classes (e.g., ArrayList, Scanner).
+java.io → For input/output operations (e.g., reading/writing files).
+java.net → For network-related operations.
+Would you like a deeper explanation or examples? 😊
+
+
+------------------------------------------------------------------------------------
+
+
+
+
+
 
 
 
