@@ -30,3 +30,43 @@ If the file already exists, it prints "File already exists.".
 Catches IOException if something goes wrong (like permission issues).
 
 ----------------------------------------------------------------------------------
+
+
+Write to a File (Update)
+This program writes the text "Hello, Java!" into "example.txt".
+
+java
+Copy
+Edit
+import java.io.FileWriter;  // Import FileWriter class
+import java.io.IOException;  // Import IOException class to handle errors
+
+public class WriteFileExample {
+    public static void main(String[] args) {
+        try {
+            // Create a FileWriter object to write to the file
+            FileWriter writer = new FileWriter("example.txt");
+
+            // Write text inside the file
+            writer.write("Hello, Java!");
+
+            // Close the writer to save changes
+            writer.close();
+
+            System.out.println("Successfully wrote to the file."); // Success message
+        } catch (IOException e) {
+            System.out.println("An error occurred."); // Handle errors
+            e.printStackTrace();
+        }
+    }
+}
+Explanation:
+FileWriter writer = new FileWriter("example.txt"); → Opens the file "example.txt" for writing.
+writer.write("Hello, Java!"); → Writes "Hello, Java!" into the file.
+writer.close(); → Saves and closes the file.
+If successful, prints "Successfully wrote to the file.".
+If an error occurs, catches IOException and prints the error.
+
+----------------------------------------------------------------
+
+
