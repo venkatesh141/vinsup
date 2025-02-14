@@ -1,0 +1,46 @@
+What is an API?
+API stands for Application Programming Interface. It is a way for two software applications to communicate with each other. Think of it like a waiter in a restaurant:
+
+You (the client) request food from the menu.
+The waiter (API) takes your order to the kitchen (server).
+The kitchen prepares the food and gives it to the waiter.
+The waiter brings the food back to you.
+Similarly, an API allows a client (such as a website or mobile app) to request data from a server and get a response.
+
+What is a REST API?
+REST API (Representational State Transfer API) is a type of API that follows certain rules to make communication easier. It mainly uses HTTP methods like:
+
+GET → To retrieve data
+POST → To send data (like submitting a form)
+PUT → To update existing data
+DELETE → To remove data
+Example of a REST API request:
+If you want to get details of a user from a website, you can call:
+
+ruby
+Copy
+Edit
+GET https://example.com/api/users/1
+This will return user details in a structured format like JSON:
+
+json
+Copy
+Edit
+{
+  "id": 1,
+  "name": "Venkatesh",
+  "email": "venkatesh@example.com"
+}
+This is how REST APIs help applications talk to each other in a simple and organized way! 🚀
+
+
+
+
+
+
+
+
+
+
+
+
