@@ -108,6 +108,40 @@ System.out.println(line); → Prints each line from the file.
 br.close(); → Closes the file after reading.
 Handles IOException if the file does not exist or another error occurs.
 =------------------------------------------------------------------------------
+Delete a File
+This program deletes "example.txt".
+
+java
+Copy
+Edit
+import java.io.File;  // Import File class
+
+public class DeleteFileExample {
+    public static void main(String[] args) {
+        // Create a File object representing "example.txt"
+        File file = new File("example.txt");
+
+        // Check if the file exists before deleting
+        if (file.delete()) {
+            System.out.println("Deleted the file: " + file.getName()); // File deleted
+        } else {
+            System.out.println("Failed to delete the file."); // Deletion failed
+        }
+    }
+}
+Explanation:
+File file = new File("example.txt"); → Creates a File object for "example.txt".
+file.delete(); → Deletes the file if it exists.
+If successful, prints "Deleted the file: example.txt".
+If the file does not exist, prints "Failed to delete the file.".
+Summary Table
+Operation	Method Used	Explanation
+Create a File	createNewFile()	Creates a new file if it does not exist.
+Write/Update a File	FileWriter.write()	Writes content inside a file.
+Read a File	FileReader + BufferedReader.readLine()	Reads and prints file content.
+Delete a File	delete()	Deletes the file if it exists.
+
+----------------------------------------------------------------------------------------
 
 
 
