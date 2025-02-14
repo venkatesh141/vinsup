@@ -19,4 +19,14 @@ public class CreateFileExample {
         }
     }
 }
+
+
+Explanation : 
+
+File file = new File("example.txt"); → Creates a File object with the name "example.txt".
+file.createNewFile(); → Creates the actual file if it does not exist.
+If the file is successfully created, it prints "File created: example.txt".
+If the file already exists, it prints "File already exists.".
+Catches IOException if something goes wrong (like permission issues).
+
 ----------------------------------------------------------------------------------
