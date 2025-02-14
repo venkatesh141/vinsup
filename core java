@@ -118,6 +118,70 @@ while loop: You keep eating cookies as long as there are cookies left on the pla
 do-while loop: You eat one cookie first, then check if there are more to continue eating.
 
   ----------------------------------------------------------------
+Variables and Data Types in Java (Simple Explanation)
+1️⃣ What is a Variable?
+A variable is like a container that stores data. In Java, every variable has a name, type, and value.
+
+🔹 Example:
+
+java
+Copy
+Edit
+int age = 25;  // 'age' is a variable storing the value 25
+Here,
+
+int → Data type (stores whole numbers)
+age → Variable name
+25 → Value stored in the variable
+2️⃣ Types of Variables in Java
+Java has three types of variables:
+
+Type	Description	Example
+Local Variable	Declared inside a method and used only within it.	int x = 10; inside a method
+Instance Variable	Declared inside a class but outside methods. Each object gets its own copy.	String name; inside a class
+Static Variable	Shared across all objects of a class (declared using static).	static int count = 0;
+3️⃣ Data Types in Java
+Data types define what kind of values a variable can store. Java has two main types:
+
+A. Primitive Data Types (8 types)
+Data Type	Size	Stores	Example
+byte	1 byte	Small whole numbers (-128 to 127)	byte b = 100;
+short	2 bytes	Medium whole numbers (-32,768 to 32,767)	short s = 30000;
+int	4 bytes	Large whole numbers (-2B to 2B)	int num = 100000;
+long	8 bytes	Very large whole numbers	long bigNum = 9999999999L;
+float	4 bytes	Decimal numbers (less precision)	float pi = 3.14f;
+double	8 bytes	Decimal numbers (high precision)	double precisePi = 3.141592;
+char	2 bytes	Single character	char letter = 'A';
+boolean	1 bit	true or false values	boolean isJavaFun = true;
+B. Non-Primitive Data Types (Objects, Strings, Arrays, etc.)
+Data Type	Example
+String	String name = "Venkatesh";
+Array	int[] numbers = {1, 2, 3};
+Class	class Car {}
+4️⃣ Example Program:
+java
+Copy
+Edit
+public class DataTypeExample {
+    public static void main(String[] args) {
+        int age = 25;  // Integer variable
+        double price = 99.99;  // Decimal variable
+        char grade = 'A';  // Character variable
+        boolean isPassed = true;  // Boolean variable
+        String name = "Venkatesh";  // String (non-primitive)
+
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
+        System.out.println("Passed: " + isPassed);
+        System.out.println("Price: " + price);
+    }
+}
+5️⃣ Summary
+Variables store data in Java.
+Primitive types (8) store simple values like numbers and characters.
+Non-primitive types store complex objects like Strings and Arrays.
+-----------------------------------------------------------------
 Bitwise operators 
 
 
