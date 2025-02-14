@@ -68,5 +68,47 @@ If successful, prints "Successfully wrote to the file.".
 If an error occurs, catches IOException and prints the error.
 
 ----------------------------------------------------------------
+Read from a File
+This program reads and prints the content from "example.txt".
+
+java
+Copy
+Edit
+import java.io.FileReader;  // Import FileReader class
+import java.io.BufferedReader;  // Import BufferedReader class for efficient reading
+import java.io.IOException;  // Import IOException class to handle errors
+
+public class ReadFileExample {
+    public static void main(String[] args) {
+        try {
+            // Create a FileReader object to read from the file
+            FileReader reader = new FileReader("example.txt");
+
+            // Use BufferedReader to read the file line by line
+            BufferedReader br = new BufferedReader(reader);
+
+            String line; // Variable to store each line
+            while ((line = br.readLine()) != null) { // Read until end of file
+                System.out.println(line); // Print each line of the file
+            }
+
+            // Close the BufferedReader
+            br.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred."); // Handle errors
+            e.printStackTrace();
+        }
+    }
+}
+Explanation:
+FileReader reader = new FileReader("example.txt"); → Opens "example.txt" for reading.
+BufferedReader br = new BufferedReader(reader); → Reads file line by line efficiently.
+while ((line = br.readLine()) != null) {} → Reads each line until the end of the file.
+System.out.println(line); → Prints each line from the file.
+br.close(); → Closes the file after reading.
+Handles IOException if the file does not exist or another error occurs.
+=------------------------------------------------------------------------------
+
+
 
 
