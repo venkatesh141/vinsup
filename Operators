@@ -1,0 +1,43 @@
+Types of Operators in Java
+1. Arithmetic Operators (Used for math calculations)
++ (Addition) → 5 + 3 = 8
+- (Subtraction) → 5 - 3 = 2
+* (Multiplication) → 5 * 3 = 15
+/ (Division) → 5 / 2 = 2 (Only the whole number in integer division)
+% (Modulus) → 5 % 2 = 1 (Gives remainder)
+2. Relational (Comparison) Operators (Used to compare values)
+== (Equal to) → 5 == 5 (true)
+!= (Not equal to) → 5 != 3 (true)
+> (Greater than) → 5 > 3 (true)
+< (Less than) → 5 < 3 (false)
+>= (Greater than or equal to) → 5 >= 5 (true)
+<= (Less than or equal to) → 3 <= 5 (true)
+3. Logical Operators (Used to combine conditions)
+&& (AND) → true && false → false (Both must be true)
+|| (OR) → true || false → true (At least one must be true)
+! (NOT) → !true → false (Reverses the condition)
+4. Bitwise Operators (Used for binary calculations)
+& (AND) → 5 & 3
+| (OR) → 5 | 3
+^ (XOR) → 5 ^ 3
+~ (NOT) → ~5
+<< (Left Shift) → 5 << 1
+>> (Right Shift) → 5 >> 1
+5. Assignment Operators (Used to assign values)
+= → a = 10 (Assigns 10 to a)
++= → a += 5 (Same as a = a + 5)
+-= → a -= 5 (Same as a = a - 5)
+*= → a *= 5 (Same as a = a * 5)
+/= → a /= 5 (Same as a = a / 5)
+6. Unary Operators (Works with a single value)
+++ (Increment)
+a++ → Post-increment (Uses value first, then increases)
+++a → Pre-increment (Increases first, then uses value)
+-- (Decrement)
+a-- → Post-decrement
+--a → Pre-decrement
+7. Ternary Operator (Short form of if-else)
+condition ? value_if_true : value_if_false
+Example: int result = (a > b) ? a : b; (Stores the larger value in result)
+8. Instanceof Operator (Checks if an object belongs to a class)
+Example: if (obj instanceof String) { ... }
