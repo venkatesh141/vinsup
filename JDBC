@@ -1,0 +1,200 @@
+JDBC (Java Database Connectivity) - Simple Explanation
+JDBC is a Java API that allows Java programs to interact with databases. It helps you connect, execute queries, and retrieve data from a database like MySQL.
+
+
+JDBC (Java Database Connectivity) - Simple Explanation
+JDBC is a Java API that allows Java programs to interact with databases. 
+It helps you connect, execute queries, and retrieve data from a database like MySQL.
+
+
+Steps to Use JDBC
+Load the JDBC Driver – Helps Java communicate with the database.
+Establish a Connection – Connect to the database using a URL, username, and password.
+Create a Statement – Write SQL queries.
+Execute Queries – Perform CRUD operations (Create, Read, Update, Delete).
+Close the Connection – Free up resources after work is done.
+
+
+
+1️⃣ Create Operation (Insert Data)
+java
+Copy
+Edit
+import java.sql.*;  // Import SQL package for JDBC
+
+public class CreateProduct {
+    public static void main(String[] args) {
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/your_database"; // Database URL
+        String user = "root"; // MySQL username
+        String password = "your_password"; // MySQL password
+
+        try {
+            // 1. Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish Connection to the database
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            // 3. Create an SQL query for inserting data
+            String sql = "INSERT INTO products (name, price) VALUES (?, ?)";
+
+            // 4. Create a PreparedStatement to execute the query
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            // 5. Set the values for placeholders (?) in the SQL query
+            pstmt.setString(1, "Laptop");  // First parameter: name
+            pstmt.setDouble(2, 75000);     // Second parameter: price
+
+            // 6. Execute the query
+            int rowsInserted = pstmt.executeUpdate();
+
+            // 7. Check if the insertion was successful
+            if (rowsInserted > 0) {
+                System.out.println("Product added successfully!");
+            }
+
+            // 8. Close the connection
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();  // Print any errors
+        }
+    }
+}
+2️⃣ Read Operation (Retrieve Data)
+java
+Copy
+Edit
+import java.sql.*;  // Import SQL package for JDBC
+
+public class ReadProducts {
+    public static void main(String[] args) {
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/your_database"; // Database URL
+        String user = "root"; // MySQL username
+        String password = "your_password"; // MySQL password
+
+        try {
+            // 1. Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish Connection to the database
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            // 3. Create an SQL query for reading data
+            String sql = "SELECT * FROM products";
+
+            // 4. Create a Statement to execute the query
+            Statement stmt = conn.createStatement();
+
+            // 5. Execute the query and store the result
+            ResultSet rs = stmt.executeQuery(sql);
+
+            // 6. Process the result set
+            while (rs.next()) { // Loop through each row
+                int id = rs.getInt("id");  // Get product ID
+                String name = rs.getString("name"); // Get product name
+                double price = rs.getDouble("price"); // Get product price
+
+                // Print product details
+                System.out.println("ID: " + id + ", Name: " + name + ", Price: " + price);
+            }
+
+            // 7. Close the connection
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();  // Print any errors
+        }
+    }
+}
+3️⃣ Update Operation (Modify Data)
+java
+Copy
+Edit
+import java.sql.*;  // Import SQL package for JDBC
+
+public class UpdateProduct {
+    public static void main(String[] args) {
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/your_database"; // Database URL
+        String user = "root"; // MySQL username
+        String password = "your_password"; // MySQL password
+
+        try {
+            // 1. Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish Connection to the database
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            // 3. Create an SQL query for updating data
+            String sql = "UPDATE products SET name = ?, price = ? WHERE id = ?";
+
+            // 4. Create a PreparedStatement to execute the query
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            // 5. Set the values for placeholders (?) in the SQL query
+            pstmt.setString(1, "Gaming Laptop");  // New product name
+            pstmt.setDouble(2, 90000);           // New product price
+            pstmt.setInt(3, 1);                  // Update product where id = 1
+
+            // 6. Execute the update query
+            int rowsUpdated = pstmt.executeUpdate();
+
+            // 7. Check if the update was successful
+            if (rowsUpdated > 0) {
+                System.out.println("Product updated successfully!");
+            }
+
+            // 8. Close the connection
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();  // Print any errors
+        }
+    }
+}
+4️⃣ Delete Operation (Remove Data)
+java
+Copy
+Edit
+import java.sql.*;  // Import SQL package for JDBC
+
+public class DeleteProduct {
+    public static void main(String[] args) {
+        // Database connection details
+        String url = "jdbc:mysql://localhost:3306/your_database"; // Database URL
+        String user = "root"; // MySQL username
+        String password = "your_password"; // MySQL password
+
+        try {
+            // 1. Load MySQL JDBC Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // 2. Establish Connection to the database
+            Connection conn = DriverManager.getConnection(url, user, password);
+
+            // 3. Create an SQL query for deleting data
+            String sql = "DELETE FROM products WHERE id = ?";
+
+            // 4. Create a PreparedStatement to execute the query
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+
+            // 5. Set the ID of the product to be deleted
+            pstmt.setInt(1, 1); // Delete product where id = 1
+
+            // 6. Execute the delete query
+            int rowsDeleted = pstmt.executeUpdate();
+
+            // 7. Check if the delete was successful
+            if (rowsDeleted > 0) {
+                System.out.println("Product deleted successfully!");
+            }
+
+            // 8. Close the connection
+            conn.close();
+        } catch (Exception e) {
+            e.printStackTrace();  // Print any errors
+        }
+    }
+}
+-----------------------------------------------------------------------------------------
