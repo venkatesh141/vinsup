@@ -1,0 +1,28 @@
+What is RestTemplate?
+RestTemplate is a class in Spring that helps Java applications communicate with REST APIs. It acts like a browser or Postman but inside your code. You can use it to send HTTP requests (GET, POST, PUT, DELETE) and receive responses from web services.
+
+Example:
+Imagine you are building a weather app, and you need to get data from an external weather API. RestTemplate helps your Java application send a request and receive the weather data.
+
+What is the Communicator Layer in RestTemplate?
+The communicator layer is the part of your application that handles communication with external services using RestTemplate. It acts as a bridge between your app and the API.
+
+Example:
+
+Your app wants to fetch weather data → It calls the communicator layer
+The communicator layer uses RestTemplate to send an API request
+The API responds with weather data → The communicator layer processes and returns it to your app
+This layer helps organize API calls separately, making the code cleaner and easier to maintain.
+
+
+
+
+
+
+
+
+
+
+
+
+
