@@ -1,0 +1,79 @@
+Exception Handling in Java – Simple Explanation
+What is an Exception?
+An exception is an unexpected error that occurs while running a program. Java provides a way to handle these errors without crashing the program.
+
+Why Use Exception Handling?
+🔹 If an error happens and we don’t handle it, the program stops suddenly ❌.
+🔹 Exception handling allows us to catch the error and continue running ✅.
+
+Basic Try-Catch Example
+java
+Copy
+Edit
+public class Example {
+    public static void main(String[] args) {
+        try {
+            int result = 10 / 0;  // ❌ This will cause an error (division by zero)
+            System.out.println(result);
+        } catch (ArithmeticException e) {
+            System.out.println("Error: Cannot divide by zero!");
+        }
+    }
+}
+🔹 try block → Code that may cause an error.
+🔹 catch block → Handles the error and prevents the program from crashing.
+
+🛑 Without try-catch, the program would crash.
+✅ With try-catch, the program prints "Error: Cannot divide by zero!" and continues running.
+
+Analogy for Exception Handling
+🚗 Imagine you are driving a car:
+
+If a dog suddenly appears on the road (exception), you don’t crash the car.
+Instead, you hit the brakes (handle the exception) and continue safely.
+Types of Exceptions
+1️⃣ Checked Exception → Must be handled in code (e.g., IOException).
+🔹 Example: Reading a file that doesn’t exist.
+
+2️⃣ Unchecked Exception → Happens at runtime (e.g., NullPointerException).
+🔹 Example: Trying to access an object that is null.
+
+3️⃣ Custom Exception → You can create your own exceptions for specific cases.
+
+Finally Block (Always Runs!)
+java
+Copy
+Edit
+try {
+    int arr[] = {1, 2, 3};
+    System.out.println(arr[5]);  // ❌ Error (Index out of bounds)
+} catch (ArrayIndexOutOfBoundsException e) {
+    System.out.println("Error: Index is out of bounds!");
+} finally {
+    System.out.println("This always runs, no matter what!");  
+}
+🔹 finally block runs whether an exception occurs or not (like closing a file or database after use).
+
+Throw vs Throws
+throw → Manually throw an exception.
+throws → Declares that a method might throw an exception.
+java
+Copy
+Edit
+void checkAge(int age) throws Exception {
+    if (age < 18) {
+        throw new Exception("You must be 18+ to vote!");
+    }
+}
+Summary
+✅ Exception handling prevents crashes
+✅ Use try-catch to handle errors
+✅ Use finally for cleanup (always runs)
+✅ Use throw to manually trigger an error
+-----------------------------------------------------------------------
+
+
+
+
+
+
