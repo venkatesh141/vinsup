@@ -71,6 +71,65 @@ Summary
 ✅ Use finally for cleanup (always runs)
 ✅ Use throw to manually trigger an error
 -----------------------------------------------------------------------
+Custom exception
+Custom Exception in Java – Simple Explanation
+What is a Custom Exception?
+A custom exception is a user-defined exception that you create when built-in exceptions don’t fit your needs.
+
+Why Create a Custom Exception?
+🔹 Java has built-in exceptions (NullPointerException, ArithmeticException, etc.).
+🔹 But sometimes, we need a specific error message for our program.
+🔹 Example: If a user enters an invalid age (negative age), Java has no built-in exception for this.
+
+How to Create a Custom Exception?
+1️⃣ Extend the Exception class (checked exception) OR RuntimeException class (unchecked exception).
+2️⃣ Use throw to trigger the exception.
+3️⃣ Use try-catch to handle it.
+
+Example: Creating a Custom Exception
+java
+Copy
+Edit
+// Step 1: Create a custom exception by extending Exception
+class InvalidAgeException extends Exception {
+    public InvalidAgeException(String message) {
+        super(message);  // Pass message to Exception class
+    }
+}
+
+// Step 2: Use the custom exception
+public class CustomExceptionExample {
+    static void checkAge(int age) throws InvalidAgeException {
+        if (age < 0) {
+            throw new InvalidAgeException("Age cannot be negative!"); // Trigger the custom exception
+        }
+        System.out.println("Valid Age: " + age);
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkAge(-5);  // ❌ This will throw an exception
+        } catch (InvalidAgeException e) {
+            System.out.println("Caught Exception: " + e.getMessage());
+        }
+    }
+}
+Explanation
+1️⃣ We created a custom exception (InvalidAgeException) by extending Exception.
+2️⃣ We throw the exception (throw new InvalidAgeException) if the age is negative.
+3️⃣ The catch block catches and handles the exception instead of crashing the program.
+
+Analogy for Custom Exception
+🚗 Imagine a Car Rental Service:
+
+If a customer is below 18 years old, there is no built-in Java exception for this.
+Instead, we create a UnderageException to handle this situation.
+Summary
+✅ Use custom exceptions when built-in ones don’t fit.
+✅ Extend Exception (checked) or RuntimeException (unchecked).
+✅ Use throw to trigger and try-catch to handle it.
+
+-------------------------------------------------------------------------------------
 
 
 
