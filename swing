@@ -98,11 +98,7 @@ Summary
     Swing is lightweight, customizable, and platform-independent.
     Events (like button clicks) can be handled using ActionListener.
 
-Would you like to see an example with more components like text fields and labels? 😊
-You said:
-set two inputs feild to add two numbers
-ChatGPT said:
-
+---------------------------------------------------------------------------------------------------
 Here’s a simple Swing application where the user can enter two numbers, click a button, and see the result.
 Code to Add Two Numbers Using Swing
 
@@ -175,3 +171,149 @@ How It Works
     The sum is displayed below the button.
 -------------------------------------------------------------------------------------------------
 
+package swing;
+import javax.swing.*;  // Import Swing package
+import javax.swing.*;
+
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Two {
+    public static void main(String[] args) {
+        // Create the main JFrame
+        JFrame frame = new JFrame("CRUD Example");
+        frame.setSize(600, 400);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLayout(null);
+
+        // Table to display data
+        String[] columns = {"ID", "Name", "Age"};
+        DefaultTableModel tableModel = new DefaultTableModel(columns, 0);
+        JTable table = new JTable(tableModel);
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBounds(50, 20, 500, 150);
+        frame.add(scrollPane);
+
+        // Input fields and labels
+        JLabel idLabel = new JLabel("ID:");
+        idLabel.setBounds(50, 200, 50, 30);
+        frame.add(idLabel);
+
+        JTextField idField = new JTextField();
+        idField.setBounds(100, 200, 100, 30);
+        frame.add(idField);
+
+        JLabel nameLabel = new JLabel("Name:");
+        nameLabel.setBounds(220, 200, 50, 30);
+        frame.add(nameLabel);
+
+        JTextField nameField = new JTextField();
+        nameField.setBounds(280, 200, 100, 30);
+        frame.add(nameField);
+
+        JLabel ageLabel = new JLabel("Age:");
+        ageLabel.setBounds(400, 200, 50, 30);
+        frame.add(ageLabel);
+
+        JTextField ageField = new JTextField();
+        ageField.setBounds(450, 200, 100, 30);
+        frame.add(ageField);
+
+        // CRUD Buttons
+        JButton addButton = new JButton("Add");
+        addButton.setBounds(50, 250, 100, 30);
+        frame.add(addButton);
+
+        JButton updateButton = new JButton("Update");
+        updateButton.setBounds(160, 250, 100, 30);
+        frame.add(updateButton);
+
+        JButton deleteButton = new JButton("Delete");
+        deleteButton.setBounds(270, 250, 100, 30);
+        frame.add(deleteButton);
+
+        JButton clearButton = new JButton("Clear");
+        clearButton.setBounds(380, 250, 100, 30);
+        frame.add(clearButton);
+
+        // Add Button Action
+        addButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String id = idField.getText();
+                String name = nameField.getText();
+                String age = ageField.getText();
+
+                if (id.isEmpty() || name.isEmpty() || age.isEmpty()) {
+                    JOptionPane.showMessageDialog(frame, "Please fill all fields!");
+                } else {
+                    tableModel.addRow(new Object[]{id, name, age}); // Add new row to table
+                    clearFields();
+                }
+            }
+
+            private void clearFields() {
+                idField.setText("");
+                nameField.setText("");
+                ageField.setText("");
+            }
+        });
+
+        // Update Button Action
+        updateButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(frame, "Please select a row to update!");
+                } else {
+                    tableModel.setValueAt(idField.getText(), selectedRow, 0);
+                    tableModel.setValueAt(nameField.getText(), selectedRow, 1);
+                    tableModel.setValueAt(ageField.getText(), selectedRow, 2);
+                    clearFields();
+                }
+            }
+
+            private void clearFields() {
+                idField.setText("");
+                nameField.setText("");
+                ageField.setText("");
+            }
+        });
+
+        // Delete Button Action
+        deleteButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int selectedRow = table.getSelectedRow();
+                if (selectedRow == -1) {
+                    JOptionPane.showMessageDialog(frame, "Please select a row to delete!");
+                } else {
+                    tableModel.removeRow(selectedRow); // Remove selected row from table
+                }
+            }
+        });
+
+        // Clear Button Action
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                idField.setText("");
+                nameField.setText("");
+                ageField.setText("");
+            }
+        });
+
+        // Table Row Click Listener
+        table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent e) {
+                int selectedRow = table.getSelectedRow();
+                idField.setText(tableModel.getValueAt(selectedRow, 0).toString());
+                nameField.setText(tableModel.getValueAt(selectedRow, 1).toString());
+                ageField.setText(tableModel.getValueAt(selectedRow, 2).toString());
+            }
+        });
+
+        // Show the frame
+        frame.setVisible(true);
+    }
+}----------------------------------------------------------------------
