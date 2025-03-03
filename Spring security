@@ -1,0 +1,162 @@
+Overview of Spring Security Framework
+Spring Security is a framework that helps secure Java web applications by handling authentication (login) and authorization (permissions). It ensures only the right users can access specific parts of an application.
+
+1. Authentication & Authorization
+Authentication (Who are you?)
+Authentication is the process of verifying who the user is. It typically involves:
+✅ Username & Password check
+✅ Tokens (JWT, OAuth)
+✅ Third-party logins (Google, Facebook, etc.)
+
+Example:
+
+If a user enters the correct username and password, they are authenticated and logged in.
+Authorization (What can you do?)
+Authorization decides what an authenticated user can access.
+✅ Users with admin roles can see admin pages
+✅ Regular users can only access their profile
+
+Example:
+
+Even if you're logged in, you can't delete users unless you're an admin.
+2. Remember Me (Stay Logged In)
+Normally, when you close the browser, the session ends.
+With Remember Me, users stay logged in even after closing the browser.
+
+🔹 This works using cookies.
+🔹 If the user checks "Remember Me", a token is stored in the browser, allowing automatic login next time.
+
+How to enable?
+
+java
+Copy
+Edit
+http
+    .rememberMe()
+    .key("uniqueAndSecret") // Unique key for security
+    .tokenValiditySeconds(86400); // Remember me for 1 day
+3. Third-Party Authentication (Google, Facebook, etc.)
+Instead of storing passwords, users can log in using Google, Facebook, GitHub, etc.
+
+🔹 This uses OAuth 2.0 (a secure authentication protocol).
+🔹 Spring Security supports it via Spring Security OAuth2.
+
+Example of enabling Google login:
+
+java
+Copy
+Edit
+http
+    .oauth2Login(); // Enables third-party login (Google, Facebook)
+4. Lombok & DTO
+Lombok
+Lombok is a Java library that reduces boilerplate code like getters, setters, and constructors.
+
+Without Lombok:
+
+java
+Copy
+Edit
+public class User {
+    private String name;
+    private int age;
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+}
+With Lombok:
+
+java
+Copy
+Edit
+import lombok.Data;
+
+@Data
+public class User {
+    private String name;
+    private int age;
+}
+✅ @Data generates getters, setters, equals, hashCode, and toString automatically.
+
+DTO (Data Transfer Object)
+A DTO is used to transfer data between layers in an application.
+
+Example:
+Instead of sending the full User entity to the frontend, we send only needed fields via a DTO.
+
+java
+Copy
+Edit
+public class UserDTO {
+    private String name;
+    private String email;
+}
+5. Ant Matchers (URL-based access control)
+Ant matchers define which users can access which URLs.
+
+Example:
+
+java
+Copy
+Edit
+http
+    .authorizeRequests()
+    .antMatchers("/admin/**").hasRole("ADMIN") // Only ADMIN can access /admin/*
+    .antMatchers("/user/**").hasRole("USER")   // Only USER can access /user/*
+    .antMatchers("/public/**").permitAll();    // Anyone can access /public/*
+✅ "/admin/" → Only for ADMIN
+✅ "/user/" → Only for USER
+✅ "/public/" → Open to everyone
+
+6. Basic Authentication
+Basic Authentication is a simple way to secure APIs using a username & password in the request header.
+
+Example request:
+
+pgsql
+Copy
+Edit
+Authorization: Basic base64(username:password)
+To enable Basic Authentication in Spring Security:
+
+java
+Copy
+Edit
+http
+    .httpBasic() // Enables basic authentication
+    .and()
+    .authorizeRequests()
+    .antMatchers("/api/**").authenticated(); // Requires authentication
+7. Method-Level Security
+Method-level security allows restricting access inside Java methods using annotations.
+
+Step 1: Enable method security
+
+java
+Copy
+Edit
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+public class SecurityConfig { ... }
+Step 2: Use method-level security
+
+java
+Copy
+Edit
+@PreAuthorize("hasRole('ADMIN')") // Only admin can call this method
+public void deleteUser() { 
+    // delete user logic
+}
+✅ @PreAuthorize("hasRole('ADMIN')") → Only ADMIN can call this method
+✅ @PreAuthorize("hasRole('USER')") → Only USER can call this method
+
+Summary
+Feature	Explanation
+Authentication	Verify user identity (login)
+Authorization	Control user access (permissions)
+Remember Me	Stay logged in even after closing the browser
+Third-Party Auth	Login with Google, Facebook, etc.
+Lombok	Reduces boilerplate code (getters, setters)
+DTO	Transfers only necessary data between layers
+Ant Matchers	Restrict URL access based on user roles
+Basic Auth	Secure APIs with username & password
+Method Security	Secure individual Java methods
