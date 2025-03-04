@@ -102,4 +102,54 @@ Key Points
 🔹 Multiple threads run at the same time, improving performance.
 
 Would you like more examples or explanations? 😊
+-------------------------------------------------------------------------
+class SharedResource {
+    // Synchronized method
+    public synchronized void printTask(String taskName) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(taskName + " is running: " + i);
+            try {
+                Thread.sleep(500); // Pause to simulate real execution
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+// First Task Thread
+class Task1 extends Thread {
+    SharedResource resource;
+    Task1(SharedResource resource) {
+        this.resource = resource;
+    }
+    public void run() {
+        resource.printTask("Task 1");
+    }
+}
+
+// Second Task Thread
+class Task2 extends Thread {
+    SharedResource resource;
+    Task2(SharedResource resource) {
+        this.resource = resource;
+    }
+    public void run() {
+        resource.printTask("Task 2");
+    }
+}
+
+// Main Class
+public class Main {
+    public static void main(String[] args) {
+        SharedResource obj = new SharedResource(); // Shared object
+
+        Task1 t1 = new Task1(obj);
+        Task2 t2 = new Task2(obj);
+
+        t1.start();
+        t2.start();
+    }
+}
+-------------------------------------------------------------------
 
