@@ -1,0 +1,105 @@
+Thread and Multithreading in Java (Simple Explanation)
+What is a Thread?
+
+A thread is a lightweight process that runs independently within a program. Java uses threads to perform multiple tasks at the same time.
+What is Multithreading?
+
+Multithreading is the ability of a program to run multiple threads at the same time. It helps in:
+✅ Running tasks faster
+✅ Better CPU utilization
+✅ Performing multiple tasks at once
+Creating a Thread in Java
+
+In Java, we can create a thread in two ways:
+1️⃣ By extending the Thread class
+2️⃣ By implementing the Runnable interface
+1️⃣ Using the Thread Class
+
+class MyThread extends Thread {
+    public void run() {
+        // Code that runs in the thread
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Thread is running: " + i);
+            try {
+                Thread.sleep(1000); // Pause for 1 second
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class ThreadExample {
+    public static void main(String[] args) {
+        MyThread t1 = new MyThread(); // Create thread object
+        t1.start(); // Start the thread
+    }
+}
+
+✅ The run() method contains the logic that runs in the thread.
+✅ The start() method starts the thread and runs run().
+✅ Thread.sleep(1000) pauses the thread for 1 second.
+2️⃣ Using the Runnable Interface
+
+class MyRunnable implements Runnable {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Runnable Thread is running: " + i);
+            try {
+                Thread.sleep(1000); // Pause for 1 second
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}
+
+public class RunnableExample {
+    public static void main(String[] args) {
+        MyRunnable myRunnable = new MyRunnable(); // Create runnable object
+        Thread t1 = new Thread(myRunnable); // Create thread object
+        t1.start(); // Start the thread
+    }
+}
+
+✅ Runnable is used when a class already extends another class (since Java does not support multiple inheritance).
+✅ We create a Thread object and pass the Runnable object to it.
+Multithreading Example
+
+class Task1 extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Task 1 is running: " + i);
+        }
+    }
+}
+
+class Task2 extends Thread {
+    public void run() {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Task 2 is running: " + i);
+        }
+    }
+}
+
+public class MultiThreadExample {
+    public static void main(String[] args) {
+        Task1 t1 = new Task1();
+        Task2 t2 = new Task2();
+        
+        t1.start(); // Start first thread
+        t2.start(); // Start second thread
+    }
+}
+
+✅ Both threads run simultaneously.
+✅ Order of execution is not fixed (depends on CPU scheduling).
+Key Points
+
+🔹 start() method starts a thread.
+🔹 run() method contains the code that runs in a thread.
+🔹 Thread.sleep(ms) makes a thread wait for the given milliseconds.
+🔹 Multiple threads run at the same time, improving performance.
+
+Would you like more examples or explanations? 😊
+
