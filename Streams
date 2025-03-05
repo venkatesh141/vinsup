@@ -1,0 +1,133 @@
+Streams in Java (Simple Explanation)
+
+A Stream in Java is like a pipeline that helps process data (like arrays, collections, or files) easily and efficiently. It allows you to perform operations like filtering, mapping, and reducing data in a simple way.
+Why Use Streams?
+
+✅ Less Code – You can do complex operations in just a few lines.
+✅ Faster Processing – Uses parallel execution for better performance.
+✅ Readable & Maintainable – Code looks cleaner and easier to understand.
+Example Without Streams (Traditional Way)
+
+Let's say we have a list of numbers and we want to find all even numbers.
+
+import java.util.*;
+
+public class WithoutStreams {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> evenNumbers = new ArrayList<>();
+        
+        for (Integer num : numbers) {
+            if (num % 2 == 0) {
+                evenNumbers.add(num);
+            }
+        }
+        
+        System.out.println(evenNumbers);  // Output: [2, 4, 6]
+    }
+}
+
+Same Example Using Streams (Easy Way)
+
+import java.util.*;
+
+public class WithStreams {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+        
+        List<Integer> evenNumbers = numbers.stream()  // Convert list to stream
+                                           .filter(num -> num % 2 == 0) // Keep only even numbers
+                                           .toList();  // Collect result into a list
+        
+        System.out.println(evenNumbers);  // Output: [2, 4, 6]
+    }
+}
+
+Important Stream Operations
+Operation	What It Does	Example
+filter()	Selects elements based on a condition	filter(num -> num % 2 == 0)
+map()	Transforms each element	map(num -> num * 2) (Doubles each number)
+sorted()	Sorts elements	sorted()
+forEach()	Performs an action on each element	forEach(System.out::println)
+collect()	Converts stream back to a list/set	.collect(Collectors.toList())
+Key Points About Streams
+
+    Streams don’t change the original data (They create a new stream).
+    Streams don’t store data, they process it.
+    Streams can be parallel for faster execution using .parallelStream().
+
+Summary
+
+    Stream = Pipeline for data processing
+    Reduces code complexity
+    Works well with collections like Lists, Sets
+    Operations like filter(), map(), sorted() make processing easy
+
+
+
+
+Example 2: Using map() to Double Each Number
+
+👉 Task: Multiply each number by 2.
+
+import java.util.*;
+
+public class MapExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
+
+        List<Integer> doubledNumbers = numbers.stream()
+                                              .map(num -> num * 2)  // Multiply each number by 2
+                                              .toList();
+
+        System.out.println(doubledNumbers);  // Output: [2, 4, 6, 8, 10]
+    }
+}
+
+Example 3: Using reduce() to Find the Sum of Numbers
+
+👉 Task: Sum all numbers in a list.
+
+import java.util.*;
+
+public class ReduceExample {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(5, 10, 15, 20);
+
+        int sum = numbers.stream()
+                         .reduce(0, (a, b) -> a + b);  // Sum up all numbers
+
+        System.out.println("Sum: " + sum);  // Output: Sum: 50
+    }
+}
+
+Example 4: Combining filter(), map(), and reduce()
+
+👉 Task: Find the sum of squares of even numbers.
+
+import java.util.*;
+
+public class StreamOperations {
+    public static void main(String[] args) {
+        List<Integer> numbers = Arrays.asList(2, 3, 4, 5, 6, 7, 8);
+
+        int sumOfSquares = numbers.stream()
+                                  .filter(num -> num % 2 == 0)  // Keep even numbers
+                                  .map(num -> num * num)  // Square each number
+                                  .reduce(0, Integer::sum);  // Sum them up
+
+        System.out.println("Sum of squares of even numbers: " + sumOfSquares);  // Output: 120
+    }
+}
+
+Key Methods Used
+Method	What It Does
+filter(condition)	Selects elements that match a condition
+map(function)	Transforms each element
+reduce(initial, operation)	Reduces all elements to a single value
+Summary
+
+✔ filter() – Removes unwanted elements.
+✔ map() – Modifies each element.
+✔ reduce() – Combines all elements into one result.
+
