@@ -1,0 +1,26 @@
+ChatGPT said:
+User Persistence (Keeping Users Logged In)
+
+User persistence means keeping a user logged in even after they close the app or browser. This way, they don’t have to enter their username and password every time.
+
+    How It Works?
+        Cookies – Small files stored in the browser that keep the session active.
+        Sessions – Data stored on the server that remembers the user.
+        Tokens (JWT) – Secure keys that allow users to stay logged in without storing passwords.
+
+JWT Authentication (Secure Login Using Tokens)
+
+JWT (JSON Web Token) is a way to securely authenticate users without storing their login state on the server.
+
+    How It Works?
+        User Logs In → They enter a username & password.
+        Server Generates a JWT Token → A unique key (JWT) is created and sent to the user.
+        User Stores the Token → The token is saved in local storage or cookies.
+        User Makes a Request → Every time they visit a page, they send the JWT in the request.
+        Server Verifies JWT → If the token is valid, the user is allowed access.
+
+Why Use JWT?
+
+✅ No Need to Store Sessions on the Server – Everything is in the token.
+✅ Secure – It can be encrypted and verified.
+✅ Fast Authentication – No need to check the database every time.
