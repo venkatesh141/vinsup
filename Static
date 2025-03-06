@@ -1,0 +1,79 @@
+Static in Java (Simple Explanation)
+
+The static keyword in Java means "belongs to the class, not to objects." This means static variables, methods, and blocks are shared among all objects of a class and can be used without creating an object.
+1️⃣ Static Variable
+
+A static variable is a single copy shared by all objects of a class. It is created when the class loads and remains until the program ends.
+
+📌 Example:
+
+class Test {
+    static int count = 0; // Static variable
+
+    Test() {
+        count++; // Increases the count for every object created
+    }
+
+    void showCount() {
+        System.out.println("Count: " + count);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = new Test();
+        Test t2 = new Test();
+        Test t3 = new Test();
+
+        t1.showCount(); // Output: Count: 3
+    }
+}
+
+✅ All objects share the same count variable.
+2️⃣ Static Method
+
+A static method belongs to the class and can be called without creating an object. It cannot access non-static variables or methods directly.
+
+📌 Example:
+
+class Test {
+    static void display() { // Static method
+        System.out.println("Hello from static method!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test.display(); // Calling static method without an object
+    }
+}
+
+✅ No object is needed to call display()
+3️⃣ Static Block
+
+A static block runs only once when the class is loaded. It is used to initialize static variables.
+
+📌 Example:
+
+class Test {
+    static int num;
+
+    static { // Static block
+        num = 10;
+        System.out.println("Static block executed! num = " + num);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Test t1 = new Test(); // Static block runs before this line
+    }
+}
+
+✅ The static block runs before the first object is created.
+Summary
+Feature	Static Variable	Static Method	Static Block
+Belongs to	Class (shared by all objects)	Class (called without object)	Class (executes once)
+Accessed using	ClassName.variableName	ClassName.methodName()	Runs automatically when the class loads
+Can access non-static members?	❌ No	❌ No	✅ Yes (only indirectly)
+Executes	When the class loads	When called	When the class loads
