@@ -1,0 +1,53 @@
+What is Spring Boot DevTools? (Simple Explanation)
+Spring Boot DevTools is a tool that helps developers by auto-restarting the application when code changes, making development faster and easier.
+
+Think of it Like This:
+Imagine you are writing a document, but every time you make a small change, you have to close and reopen the file to see the update. That would be annoying, right? 😩
+
+Spring Boot DevTools removes this pain by automatically reloading your application whenever you make changes! 🚀
+
+Why Use DevTools?
+✅ Auto-restart: No need to stop & restart the app manually.
+✅ LiveReload Support: Auto-refresh browser when frontend changes.
+✅ Disables Caching: Helps in debugging by showing real-time changes.
+✅ Works Only in Development: Won't affect production performance.
+
+How to Use It?
+1️⃣ Add DevTools to pom.xml (for Maven projects)
+
+xml
+Copy
+Edit
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-devtools</artifactId>
+    <optional>true</optional>
+</dependency>
+2️⃣ Enable LiveReload (Optional - If using a browser)
+
+Install the LiveReload extension in your browser.
+Restart your app and see automatic browser refresh on changes.
+3️⃣ Run Your Application Normally
+
+Make changes to your Java files or templates.
+Spring Boot automatically restarts the app! 🎉
+Example Without DevTools 😢
+Edit your code.
+Stop the Spring Boot application.
+Start it again.
+Wait for it to load...
+Example With DevTools 😃
+Edit your code.
+Save the file.
+Spring Boot automatically restarts – no manual restart needed! 🚀
+Summary
+Spring Boot DevTools saves time by auto-restarting the app when changes are made, making development faster and smoother.
+
+
+
+
+
+
+
+
+
