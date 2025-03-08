@@ -1,0 +1,140 @@
+Functions in Java (Methods) - Simple Explanation
+A function in Java is called a method. It is a block of code that performs a specific task.
+
+1️⃣ Why Use Functions?
+Avoid repeating the same code.
+Make the program organized and easy to understand.
+Allow reusability (use the same function multiple times).
+2️⃣ How to Create a Function?
+Syntax
+java
+Copy
+Edit
+returnType functionName(parameters) {
+    // Code inside the function
+    return value; // (if returnType is not void)
+}
+3️⃣ Example of a Simple Function
+Without Parameters & Without Return Type
+java
+Copy
+Edit
+public class Example {
+    static void sayHello() {  // Function declaration
+        System.out.println("Hello, Java!");
+    }
+
+    public static void main(String[] args) {
+        sayHello();  // Function call
+    }
+}
+✔ Output:
+
+Copy
+Edit
+Hello, Java!
+✅ void means the function does not return anything.
+
+4️⃣ Function with Parameters
+A function can take inputs (parameters).
+
+java
+Copy
+Edit
+public class Example {
+    static void greet(String name) {
+        System.out.println("Hello, " + name + "!");
+    }
+
+    public static void main(String[] args) {
+        greet("Venkatesh"); // Passing a value
+    }
+}
+✔ Output:
+
+Copy
+Edit
+Hello, Venkatesh!
+✅ name is a parameter that takes input.
+
+5️⃣ Function with Return Type
+A function can return a value using return.
+
+java
+Copy
+Edit
+public class Example {
+    static int add(int a, int b) {
+        return a + b;  // Returns the sum
+    }
+
+    public static void main(String[] args) {
+        int result = add(10, 20);
+        System.out.println("Sum: " + result);
+    }
+}
+✔ Output:
+
+makefile
+Copy
+Edit
+Sum: 30
+✅ return sends back a value.
+✅ int means the function returns an integer.
+
+6️⃣ Function with Multiple Parameters
+A function can take multiple inputs.
+
+java
+Copy
+Edit
+static void multiply(int a, int b) {
+    System.out.println("Product: " + (a * b));
+}
+
+public static void main(String[] args) {
+    multiply(5, 4);
+}
+✔ Output:
+
+makefile
+Copy
+Edit
+Product: 20
+7️⃣ Types of Functions
+Predefined functions (Built-in)
+Example: Math.sqrt(16), System.out.println()
+User-defined functions (Created by us)
+Example: add(), multiply(), greet()
+8️⃣ Function Overloading
+Same function name, different parameters.
+
+java
+Copy
+Edit
+class Example {
+    static int add(int a, int b) {
+        return a + b;
+    }
+
+    static double add(double a, double b) { // Same name, different type
+        return a + b;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(add(5, 10));    // Calls int version
+        System.out.println(add(5.5, 2.5)); // Calls double version
+    }
+}
+✔ Output:
+
+Copy
+Edit
+15
+8.0
+Summary
+✔ Functions help in reusability
+✔ Functions can take inputs (parameters)
+✔ Functions can return values using return
+✔ Functions can have the same name but different parameters (overloading)
+
