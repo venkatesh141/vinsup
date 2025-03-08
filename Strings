@@ -1,0 +1,109 @@
+Strings in Java
+In Java, a String is a sequence of characters. The String class is part of java.lang package and is immutable, meaning once a String object is created, it cannot be changed.
+
+1️⃣ Creating Strings in Java
+There are two ways to create strings:
+
+1. Using String Literal (Stored in String Pool)
+java
+Copy
+Edit
+String s1 = "Hello";  // String literal
+Stored in String Pool inside the Heap.
+If the same string exists, it reuses the existing object.
+2. Using new Keyword (Stored in Heap)
+java
+Copy
+Edit
+String s2 = new String("Hello");  // Creates a new object
+Stored in Heap Memory (not in the String Pool).
+Even if the same string exists, it creates a new object.
+2️⃣ String Methods
+Java provides many built-in methods for String. Some important ones:
+
+Method	Description	Example
+length()	Returns length of string	"Hello".length() → 5
+charAt(index)	Returns character at given index	"Java".charAt(2) → 'v'
+concat(str)	Joins two strings	"Hello".concat(" World") → "Hello World"
+equals(str)	Compares two strings (case-sensitive)	"Java".equals("java") → false
+equalsIgnoreCase(str)	Compares without case sensitivity	"Java".equalsIgnoreCase("java") → true
+toUpperCase()	Converts to uppercase	"hello".toUpperCase() → "HELLO"
+toLowerCase()	Converts to lowercase	"HELLO".toLowerCase() → "hello"
+trim()	Removes leading & trailing spaces	" Hello ".trim() → "Hello"
+substring(start, end)	Extracts substring from index start to end-1	"Hello".substring(1, 4) → "ell"
+replace(old, new)	Replaces characters	"Java".replace('a', 'o') → "Jovo"
+split(delimiter)	Splits string into array based on delimiter	"a,b,c".split(",") → ["a", "b", "c"]
+contains(str)	Checks if string contains another string	"Hello".contains("ll") → true
+3️⃣ String Immutability
+Since String objects are immutable:
+
+java
+Copy
+Edit
+String s = "Hello";
+s.concat(" World"); // New string is created but not assigned
+System.out.println(s); // Output: Hello
+If we want to update the value, we need to assign it:
+
+java
+Copy
+Edit
+s = s.concat(" World"); 
+System.out.println(s); // Output: Hello World
+4️⃣ Comparing Strings
+Using == (Reference Comparison)
+java
+Copy
+Edit
+String s1 = "Java";
+String s2 = "Java";
+System.out.println(s1 == s2); // true (Same String Pool reference)
+java
+Copy
+Edit
+String s3 = new String("Java");
+System.out.println(s1 == s3); // false (Different objects in Heap)
+Using .equals() (Content Comparison)
+java
+Copy
+Edit
+System.out.println(s1.equals(s3)); // true (Same content)
+5️⃣ Mutable Strings: StringBuilder & StringBuffer
+Since String is immutable, Java provides mutable alternatives:
+
+StringBuilder (Faster, Not Thread-safe)
+StringBuffer (Thread-safe)
+Example using StringBuilder:
+
+java
+Copy
+Edit
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");
+System.out.println(sb); // Output: Hello World
+6️⃣ Converting Other Data Types to String
+Using String.valueOf()
+java
+Copy
+Edit
+int num = 100;
+String str = String.valueOf(num); // "100"
+Using Integer.toString()
+java
+Copy
+Edit
+int num = 50;
+String str = Integer.toString(num); // "50"
+Summary
+✔ String is immutable
+✔ Use == for reference comparison, .equals() for content comparison
+✔ Use StringBuilder or StringBuffer for mutable strings
+
+Let me know if you need more explanations! 🚀
+
+
+
+
+
+
+
