@@ -60,7 +60,7 @@ public class CreateProduct {
             e.printStackTrace();  // Print any errors
         }
     }
-}
+}-------------------------------------------------------
 2️⃣ Read Operation (Retrieve Data)
 java
 Copy
@@ -106,7 +106,7 @@ public class ReadProducts {
             e.printStackTrace();  // Print any errors
         }
     }
-}
+}-----------------------------------------------------------------------
 3️⃣ Update Operation (Modify Data)
 java
 Copy
@@ -152,7 +152,7 @@ public class UpdateProduct {
             e.printStackTrace();  // Print any errors
         }
     }
-}
+}-----------------------------------------------------------------------------------
 4️⃣ Delete Operation (Remove Data)
 java
 Copy
