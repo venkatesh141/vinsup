@@ -358,7 +358,8 @@ Conclusion:
 
 -------------------------------------------------------------
 Polymorphism in Java (Simple Explanation)
-The word polymorphism means "many forms." In Java, polymorphism allows the same action to behave differently based on the object performing it. It is one of the key features of Object-Oriented Programming (OOP).
+The word polymorphism means "many forms." In Java, polymorphism allows the same action to behave 
+differently based on the object performing it. It is one of the key features of Object-Oriented Programming (OOP).
 
 Types of Polymorphism
 Compile-Time Polymorphism (Method Overloading)
