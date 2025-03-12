@@ -1,0 +1,236 @@
+import java.io.*;
+import java.util.*;
+
+class LibraryManagementSystem {
+    private static Scanner scanner = new Scanner(System.in);
+    private static Map<String, String> users = new HashMap<>(); // username -> password
+    private static List<Book> books = new ArrayList<>();
+    private static Map<String, List<Issue>> issuedBooks = new HashMap<>(); // username -> list of issued books
+
+    static {
+        // Predefined users (username -> password)
+        users.put("librarian", "lib123");
+        users.put("student", "stu123");
+    }
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Library Management System!");
+
+        while (true) {
+            System.out.println("\n1. Login\n2. Exit");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    login();
+                    break;
+                case 2:
+                    System.out.println("Exiting system. Goodbye!");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    private static void login() {
+        System.out.print("Enter username: ");
+        String username = scanner.nextLine();
+        System.out.print("Enter password: ");
+        String password = scanner.nextLine();
+
+        if (users.containsKey(username) && users.get(username).equals(password)) {
+            System.out.println("Login successful as " + username);
+            if (username.equals("librarian")) {
+                librarianMenu();
+            } else {
+                studentMenu(username);
+            }
+        } else {
+            System.out.println("Invalid username or password. Try again.");
+        }
+    }
+
+    private static void librarianMenu() {
+        while (true) {
+            System.out.println("\nLibrarian Menu:");
+            System.out.println("1. Add Book\n2. View Books\n3. View Issued Books\n4. Logout");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    addBook();
+                    break;
+                case 2:
+                    viewBooks();
+                    break;
+                case 3:
+                    viewIssuedBooks();
+                    break;
+                case 4:
+                    System.out.println("Logged out.");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    private static void studentMenu(String username) {
+        while (true) {
+            System.out.println("\nStudent Menu:");
+            System.out.println("1. View Books\n2. Issue Book\n3. Return Book\n4. Logout");
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    viewBooks();
+                    break;
+                case 2:
+                    issueBook(username);
+                    break;
+                case 3:
+                    returnBook(username);
+                    break;
+                case 4:
+                    System.out.println("Logged out.");
+                    return;
+                default:
+                    System.out.println("Invalid choice. Try again.");
+            }
+        }
+    }
+
+    private static void addBook() {
+        System.out.print("Enter book ID: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+        System.out.print("Enter book title: ");
+        String title = scanner.nextLine();
+        System.out.print("Enter author: ");
+        String author = scanner.nextLine();
+        books.add(new Book(id, title, author));
+        System.out.println("Book added successfully.");
+    }
+
+    private static void viewBooks() {
+        System.out.println("\nAvailable Books:");
+        for (Book book : books) {
+            System.out.println(book.name);
+        }
+    }
+
+    private static void issueBook(String username) {
+        System.out.print("Enter book ID to issue: ");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        for (Book book : books) {
+            if (book.getId() == id) {
+                issuedBooks.putIfAbsent(username, new ArrayList<>());
+                issuedBooks.get(username).add(new Issue(book));
+                books.remove(book);
+                System.out.println("Book issued successfully.");
+                saveReport(username, "Issued", book);
+                return;
+            }
+        }
+        System.out.println("Book not found.");
+    }
+
+    private static void returnBook(String username) {
+        if (!issuedBooks.containsKey(username) || issuedBooks.get(username).isEmpty()) {
+            System.out.println("No books to return.");
+            return;
+        }
+
+        System.out.println("\nYour Issued Books:");
+        List<Issue> issues = issuedBooks.get(username);
+        for (int i = 0; i < issues.size(); i++) {
+            System.out.println((i + 1) + ". " + issues.get(i).getBook());
+        }
+
+        System.out.print("Enter the number of the book to return: ");
+        int choice = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        if (choice < 1 || choice > issues.size()) {
+            System.out.println("Invalid choice.");
+            return;
+        }
+
+        Book book = issues.get(choice - 1).getBook();
+        books.add(book);
+        issues.remove(choice - 1);
+        System.out.println("Book returned successfully.");
+        saveReport(username, "Returned", book);
+    }
+
+    private static void viewIssuedBooks() {
+        System.out.println("\nIssued Books:");
+        for (Map.Entry<String, List<Issue>> entry : issuedBooks.entrySet()) {
+            String username = entry.getKey();
+            List<Issue> issues = entry.getValue();
+
+            System.out.println("User: " + username);
+            for (Issue issue : issues) {
+                System.out.println(issue);
+            }
+        }
+    }
+
+    private static void saveReport(String username, String action, Book book) {
+        try (FileWriter writer = new FileWriter("library_report.txt", true)) {
+            writer.write(username + " " + action + " book: " + book + "\n");
+        } catch (IOException e) {
+            System.out.println("Error saving report: " + e.getMessage());
+        }
+    }
+}
+
+class Book {
+    private int id;
+    private String title;
+    private String author; 
+
+    public Book(int id, String title, String author) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    
+    public String toString() {
+        return "Book[ID= " + id + ", Title= " + title + ", Author= " + author + "]";
+    }
+}
+
+class Issue {
+    private Book book;
+    private Date issueDate;
+
+    public Issue(Book book) {
+        this.book = book;
+        this.issueDate = new Date();
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    
+    public String toString() {
+        return "Issued " + book + " on " + issueDate;
+    }
+}
+
