@@ -1,7 +1,8 @@
 Swing in Java - Simple Explanation
 
 What is Swing?
-Swing is a GUI (Graphical User Interface) toolkit in Java that helps create desktop applications with buttons, text fields, tables, and more. It is a part of Java's javax.swing package and is built on top of AWT (Abstract Window Toolkit).
+Swing is a GUI (Graphical User Interface) toolkit in Java that helps create desktop applications with buttons,
+text fields, tables, and more. It is a part of Java's javax.swing package and is built on top of AWT (Abstract Window Toolkit).
 Basic Features of Swing
 
     Lightweight – It doesn’t depend on the operating system's look and feel.
