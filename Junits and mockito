@@ -22,3 +22,50 @@ In short:
 JUnit = framework for writing tests
 Mockito = tool for faking parts of your code to make testing easier
 ----------------------------------------------------------------------------------------------------------------
+
+
+Unit Testing:
+Unit testing focuses on testing individual parts (or "units") of your code, usually functions or methods, to make sure they work correctly. Think of it like testing a single light bulb to see if it turns on when you flip the switch.
+
+Smallest testable part: You’re testing just one piece of your code in isolation (like a function or method).
+Objective: Make sure this small part of your code works as expected, and catches errors early on.
+Example:
+You have a function that adds two numbers together:
+
+java
+Copy
+public int add(int a, int b) {
+    return a + b;
+}
+A unit test would check if the add() function works correctly with different inputs:
+
+java
+Copy
+@Test
+public void testAdd() {
+    assertEquals(5, add(2, 3));  // Test if 2 + 3 equals 5
+}
+In this case, you're only testing that add() works in isolation, without worrying about any other code interacting with it.
+
+Integration Testing:
+Integration testing checks if multiple parts of your code work together correctly. Instead of testing a single function, 
+you test how different pieces of your system interact with each other—like checking if the whole electrical system in a house works when you turn on multiple lights at once.
+
+Larger scope: You test how different units (or pieces of code) work together.
+Objective: Make sure that when different parts of the application are combined, they still function as expected.
+Example:
+If your add() function relies on fetching data from a database or external API, an integration test might check 
+if the function still works when connected to the database. For example, it could test if you can successfully save and retrieve data from a database as part of the larger system.
+
+Key Differences:
+Unit Testing: Tests a single unit of your code (like one function or method) by itself.
+Integration Testing: Tests how multiple parts of your code work together as a system.
+In Simple Terms:
+Unit Testing = Testing the small pieces (like testing each individual light bulb).
+Integration Testing = Testing how those pieces work together (like checking the whole electrical system of the house).
+Does that make sense? Let me know if you need more details!
+
+
+
+
+---------------------------------------------------------------------------------------
