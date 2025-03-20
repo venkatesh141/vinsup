@@ -1,6 +1,7 @@
 Packages in Java (Simple Explanation)
 
-A package in Java is like a folder that helps organize and group similar types of classes and interfaces together. It helps in avoiding name conflicts and makes it easier to maintain large programs.
+A package in Java is like a folder that helps organize and group similar types of classes and interfaces together. 
+It helps in avoiding name conflicts and makes it easier to maintain large programs.
 Why Use Packages?
 
     Organized Code – Just like keeping different types of files in different folders on your computer.
