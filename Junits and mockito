@@ -1,22 +1,28 @@
 JUnit:
-JUnit is a framework in Java used for writing and running tests for your code. Imagine you're building a house and want to make sure everything works—JUnit is like a checklist 
+JUnit is a framework in Java used for writing and running tests for your code. Imagine you're building a house and 
+want to make sure everything works—JUnit is like a checklist 
 that helps you test different parts of your house (your code) to make sure they function correctly.
 
 Unit Testing: It focuses on testing small parts (units) of your code, like a single method or class.
 JUnit provides tools to easily create tests and check if your code works as expected.
-For example, you might have a method that adds two numbers, and you want to make sure it adds them correctly. JUnit helps you create a test that automatically checks this.
+For example, you might have a method that adds two numbers, and you want to make sure it adds them correctly.
+JUnit helps you create a test that automatically checks this.
 
 Mockito:
-Mockito is a tool that helps you mock (fake) parts of your code that are difficult to test or interact with. It’s often used with JUnit to test certain pieces of code without 
+Mockito is a tool that helps you mock (fake) parts of your code that are difficult to test or interact with. 
+It’s often used with JUnit to test certain pieces of code without 
 needing the actual resources, like databases or web servers.
 
-If you have a method that calls an external service (like sending an email), you don’t want to actually send an email during tests. Mockito lets you fake this behavior (mock the service), 
+If you have a method that calls an external service (like sending an email), you don’t want to actually send an email during tests. 
+Mockito lets you fake this behavior (mock the service), 
 so the test runs quickly and doesn’t do anything unwanted (like sending real emails).
-In simple terms, Mockito helps you create "mock" versions of objects to test the parts of your code that interact with them, without having to deal with real external systems.
+In simple terms, Mockito helps you create "mock" versions of objects to test the parts of your code that interact with them, 
+without having to deal with real external systems.
 
 Example:
 JUnit: You want to test a calculateSum() method. JUnit helps you write the test.
-Mockito: If calculateSum() relies on getting data from a database, you use Mockito to mock the database so the test doesn't depend on an actual database.
+Mockito: If calculateSum() relies on getting data from a database, you use Mockito to mock the database so the test doesn't depend 
+on an actual database.
 In short:
 
 JUnit = framework for writing tests
@@ -25,7 +31,8 @@ Mockito = tool for faking parts of your code to make testing easier
 
 
 Unit Testing:
-Unit testing focuses on testing individual parts (or "units") of your code, usually functions or methods, to make sure they work correctly. Think of it like testing a single light bulb to see if it turns on when you flip the switch.
+Unit testing focuses on testing individual parts (or "units") of your code, usually functions or methods, to make sure they work correctly. 
+Think of it like testing a single light bulb to see if it turns on when you flip the switch.
 
 Smallest testable part: You’re testing just one piece of your code in isolation (like a function or method).
 Objective: Make sure this small part of your code works as expected, and catches errors early on.
@@ -49,13 +56,15 @@ In this case, you're only testing that add() works in isolation, without worryin
 
 Integration Testing:
 Integration testing checks if multiple parts of your code work together correctly. Instead of testing a single function, 
-you test how different pieces of your system interact with each other—like checking if the whole electrical system in a house works when you turn on multiple lights at once.
+you test how different pieces of your system interact with each other—like checking if the whole electrical system in a house works 
+when you turn on multiple lights at once.
 
 Larger scope: You test how different units (or pieces of code) work together.
 Objective: Make sure that when different parts of the application are combined, they still function as expected.
 Example:
 If your add() function relies on fetching data from a database or external API, an integration test might check 
-if the function still works when connected to the database. For example, it could test if you can successfully save and retrieve data from a database as part of the larger system.
+if the function still works when connected to the database. For example, it could test if you can successfully save and retrieve 
+data from a database as part of the larger system.
 
 Key Differences:
 Unit Testing: Tests a single unit of your code (like one function or method) by itself.
