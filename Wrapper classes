@@ -1,0 +1,45 @@
+In Java, a wrapper class is a class that "wraps" or "encapsulates"
+a primitive data type (like int, char, double, etc.) into an object.
+
+Since Java is an object-oriented language, it treats everything as an object.
+However, primitive types (like int, boolean, char) are not objects. Wrapper classes solve 
+this issue by converting primitives into objects, so you can work with them as objects when needed.
+
+Examples of Wrapper Classes:
+int → Integer
+
+char → Character
+
+double → Double
+
+boolean → Boolean
+
+Why do we need Wrapper Classes?
+Objects in Collections: You can’t store primitive types in collections 
+like ArrayList. Wrapper classes are used to store primitives in collections.
+
+Conversion: Sometimes, you may need to convert between primitive values and objects. 
+Wrapper classes provide methods for that, like Integer.parseInt() or Double.valueOf().
+
+Autoboxing and Unboxing: Java automatically converts (or "boxes") a primitive type into its 
+corresponding wrapper class and vice versa (known as autoboxing and unboxing).
+
+Example:
+java
+Copy
+// Using Wrapper Class
+int primitiveInt = 5;
+Integer wrapperInt = Integer.valueOf(primitiveInt); // autoboxing
+
+System.out.println(wrapperInt); // Output: 5
+
+// Unboxing
+int unboxedInt = wrapperInt.intValue();
+System.out.println(unboxedInt); // Output: 5
+Key Points:
+Wrapper classes help you convert primitives to objects.
+
+They are useful in situations where you need objects instead of primitives,
+like in collections or when working with Java's utility classes.
+
+
