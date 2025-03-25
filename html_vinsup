@@ -77,40 +77,43 @@ The text inside a <pre> element is displayed in a fixed-width font (usually Cour
 
 table 
 
-
 <!DOCTYPE html>
 <html>
-<style>
-table, th, td {
-  border:1px solid black;
-}
-</style>
+<head>
+</head>
 <body>
 
-<h2>A basic HTML table</h2>
+<h2>Cellpadding</h2>
+<p>Cell padding specifies the space between the cell content and its borders.</p>
 
-<table style="width:100%">
+<table border="5">
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
   </tr>
   <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
   </tr>
   <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+    <td>80</td>
   </tr>
 </table>
 
-<p>To understand the example better, we have added borders to the table.</p>
+<p><strong>Tip:</strong> Try to change the padding to 5px.</p>
 
 </body>
 </html>
+
 ----------------------------------------------------------------
 <!DOCTYPE html>
 <html>
