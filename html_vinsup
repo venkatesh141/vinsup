@@ -167,26 +167,6 @@ th, td {
   padding-left: 30px;
   padding-right: 40px;
 }
--------------------------------------
-
-
-<table>
-  <tr>
-    <th colspan="2">Name</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td rowspan="2">Jill</td>
-    <td>Smith</td>
-    <td>43</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>57</td>
-  </tr>
-</table>
-
 -----------------------------------------
 <!DOCTYPE html>
 <html>
