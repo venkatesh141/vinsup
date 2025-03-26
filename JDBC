@@ -38,14 +38,15 @@ public class CreateProduct {
             Connection conn = DriverManager.getConnection(url, user, password);
 
             // 3. Create an SQL query for inserting data
-            String sql = "INSERT INTO products (name, price) VALUES (?, ?)";
+            String sql = "INSERT INTO products (id,name, price) VALUES (?,?, ?)";
 
             // 4. Create a PreparedStatement to execute the query
             PreparedStatement pstmt = conn.prepareStatement(sql);
 
             // 5. Set the values for placeholders (?) in the SQL query
-            pstmt.setString(1, "Laptop");  // First parameter: name
-            pstmt.setDouble(2, 75000);     // Second parameter: price
+            pstmt.setInt(1,4);
+            pstmt.setString(2, "Laptop");  // First parameter: name
+            pstmt.setDouble(3, 75000);     // Second parameter: price
 
             // 6. Execute the query
             int rowsInserted = pstmt.executeUpdate();
