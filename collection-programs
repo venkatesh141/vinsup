@@ -1,0 +1,135 @@
+import java.util.Stack;
+
+public class StackDemo {
+    public static void main(String[] args) {
+        Stack<Integer> stack = new Stack<>();
+
+        // Push elements
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        
+        System.out.println("Stack: " + stack);  // [10, 20, 30]
+
+        // Peek
+        System.out.println("Top element (peek): " + stack.peek());  // 30
+
+        // Pop elements
+        System.out.println("Popped element: " + stack.pop());  // 30
+        System.out.println("Stack after pop: " + stack);  // [10, 20]
+
+        // Check if empty
+        System.out.println("Is stack empty? " + stack.isEmpty());  // false
+
+        // Size
+        System.out.println("Stack size: " + stack.size());  // 2
+    }
+}
+
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class QueueDemo {
+    public static void main(String[] args) {
+        Queue<String> queue = new LinkedList<>();
+
+        // Add elements
+        queue.add("Apple");
+        queue.add("Banana");
+        queue.add("Cherry");
+
+        System.out.println("Queue: " + queue);  // [Apple, Banana, Cherry]
+
+        // Peek
+        System.out.println("Front element (peek): " + queue.peek());  // Apple
+
+        // Remove element
+        System.out.println("Removed: " + queue.remove());  // Apple
+        System.out.println("Queue after remove: " + queue);  // [Banana, Cherry]
+
+        // Check if empty
+        System.out.println("Is queue empty? " + queue.isEmpty());  // false
+
+        // Size
+        System.out.println("Queue size: " + queue.size());  // 2
+    }
+}
+
+
+---------------------------------------------------------------------------------------------
+
+
+import java.util.LinkedList;
+
+public class LinkedListDemo {
+    public static void main(String[] args) {
+        LinkedList<String> list = new LinkedList<>();
+
+        // Add elements
+        list.add("Apple");
+        list.add("Banana");
+        list.add("Cherry");
+
+        System.out.println("Linked List: " + list);  // [Apple, Banana, Cherry]
+
+        // Add at first and last
+        list.addFirst("Mango");
+        list.addLast("Orange");
+
+        System.out.println("After adding first and last: " + list);  // [Mango, Apple, Banana, Cherry, Orange]
+
+        // Remove elements
+        list.removeFirst();
+        list.removeLast();
+
+        System.out.println("After removing first and last: " + list);  // [Apple, Banana, Cherry]
+
+        // Get element by index
+        System.out.println("Element at index 1: " + list.get(1));  // Banana
+
+        // Check size
+        System.out.println("Size of linked list: " + list.size());  // 3
+    }
+}
+
+
+---------------------------------------------------------------------------------------------
+import java.util.HashMap;
+
+public class HashMapDemo {
+    public static void main(String[] args) {
+        HashMap<Integer, String> map = new HashMap<>();
+
+        // Add key-value pairs
+        map.put(1, "Apple");
+        map.put(2, "Banana");
+        map.put(3, "Cherry");
+
+        System.out.println("HashMap: " + map);  // {1=Apple, 2=Banana, 3=Cherry}
+
+        // Get value by key
+        System.out.println("Value for key 2: " + map.get(2));  // Banana
+
+        // Remove key-value pair
+        map.remove(1);
+
+        System.out.println("After removing key 1: " + map);  // {2=Banana, 3=Cherry}
+
+        // Check if key exists
+        System.out.println("Contains key 2? " + map.containsKey(2));  // true
+
+        // Size of HashMap
+        System.out.println("Size: " + map.size());  // 2
+
+        // Iterate through keys and values
+        System.out.println("Keys: " + map.keySet());  // [2, 3]
+        System.out.println("Values: " + map.values());  // [Banana, Cherry]
+    }
+}
