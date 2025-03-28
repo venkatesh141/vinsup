@@ -393,6 +393,7 @@ div.sticky {
 
 
 -------------------------------------------------------
+Min-max 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -430,7 +431,7 @@ height: 50px;: Sets the height of the element to make it visually noticeable.
 text-align: center; and line-height: 50px;: Centers the text vertically and horizontally within the element.
 Outcome: The <div> will always be 20px wide regardless of the screen size or content. Even if the browser window is resized or the content inside grows larger, the width remains fixed.
 -------------------------------------------------------------------------
-
+Flex
 <!DOCTYPE html>
 <html>
 <head>
@@ -493,7 +494,7 @@ Adds space around each box for separation.
 
 
 ------------------------------------------------------------------------------------------
-
+Gradients
 
 <!DOCTYPE html>
 <html>
