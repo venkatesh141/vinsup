@@ -1,6 +1,7 @@
 Streams in Java (Simple Explanation)
 
-A Stream in Java is like a pipeline that helps process data (like arrays, collections, or files) easily and efficiently. It allows you to perform operations like filtering, mapping, and reducing data in a simple way.
+A Stream in Java is like a pipeline that helps process data (like arrays, collections, or files) easily and efficiently. 
+It allows you to perform operations like filtering, mapping, and reducing data in a simple way.
 Why Use Streams?
 
 ✅ Less Code – You can do complex operations in just a few lines.
