@@ -281,7 +281,6 @@ console.log(c);
 // Output: [1, 2, 3, 4, 5, 6]
 -----------------------------------------------------------------------
 
-  Sure Venkatesh! Let me explain objects in JavaScript in a very simple way:
 
 🧱 What is an Object in JS?
 An object is like a real-world item that holds information in key-value pairs.
@@ -291,9 +290,6 @@ Think of an object as a box that stores related data together.
 📦 Example:
 Imagine you want to store a person's details like name, age, and job:
 
-javascript
-Copy
-Edit
 let person = {
   name: "Venkatesh",
   age: 25,
@@ -307,22 +303,13 @@ name, age, and job are called keys (or properties).
 🎯 How to Access Object Data?
 Use dot (.) or bracket ([]) notation:
 
-javascript
-Copy
-Edit
 console.log(person.name);     // Venkatesh
 console.log(person["job"]);   // Software Developer
 🎨 You can also update or add:
-javascript
-Copy
-Edit
 person.age = 26;             // updates age
 person.city = "Chennai";     // adds a new property
 Now your object becomes:
 
-javascript
-Copy
-Edit
 {
   name: "Venkatesh",
   age: 26,
