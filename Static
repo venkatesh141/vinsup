@@ -1,6 +1,7 @@
 Static in Java (Simple Explanation)
 
-The static keyword in Java means "belongs to the class, not to objects." This means static variables, methods, and blocks are shared among all objects of a class and can be used without creating an object.
+The static keyword in Java means "belongs to the class, not to objects."
+This means static variables, methods, and blocks are shared among all objects of a class and can be used without creating an object.
 1️⃣ Static Variable
 
 A static variable is a single copy shared by all objects of a class. It is created when the class loads and remains until the program ends.
